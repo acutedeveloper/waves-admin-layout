@@ -1,0 +1,37 @@
+@function px-to-rem($px-size, $base-size) {
+  @return #{$px-size/$base-size}rem;
+}
+
+/* To return screens width value as a string */
+@function breakpoint($screenWidth) {
+  $screen-width-map: (
+          "sm": 320px,
+          "md": 768px,
+          "lg": 1024px,
+          "xl": 1200px
+  );
+  @return map_get($screen-width-map, $screenWidth);
+}
+
+/*
+Mixin to return a media query set to min width
+Screen width options to match the breakpoint function values
+*/
+@mixin media-breakpoint($screenWidth) {
+  @media screen and (min-width: breakpoint($screenWidth)) {
+    @content;
+  }
+}
+
+/*
+Responsive Typography
+*/
+@mixin get-font-size($font-map, $breakpoint:"sm"){
+  @if($breakpoint == "sm") {
+    font-size: map-get($font-map, $breakpoint);
+  } @else {
+    @include media-breakpoint($breakpoint) {
+      font-size: map-get($font-map, $breakpoint);
+    }
+  }
+}

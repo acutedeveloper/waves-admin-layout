@@ -1,0 +1,29 @@
+{
+  "name": "gulp-build-flow",
+  "version": "1.0.0",
+  "description": "Example Gulp Build Flows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NM Peters",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-syntax-export-default-from": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "autoprefixer": "^9.4.3",
+    "browser-sync": "^2.26.3",
+    "cssnano": "^4.1.7",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "postcss": "^7.0.7",
+    "tailwindcss": "^0.7.3"
+  },
+  "dependencies": {}
+}
