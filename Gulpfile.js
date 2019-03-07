@@ -4,8 +4,18 @@ const browsersync = require('browser-sync');
 
 const paths = require('./GulpConfig');
 
-function html(){
-    return gulp.src(paths.html.src)
+function html() {
+
+    const nunjucksRender = require('gulp-nunjucks-render');
+    const data = require('gulp-data');
+    const htmlbeautify = require('gulp-html-beautify');
+
+    return gulp.src('src/pages/**/*.+(html|njk)')
+        .pipe(nunjucksRender({
+            path: 'src/templates',
+            watch: false,
+        }))
+        .pipe(htmlbeautify())
         .pipe(gulp.dest(paths.html.dest));
 }
 

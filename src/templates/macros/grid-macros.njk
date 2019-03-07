@@ -1,0 +1,21 @@
+{# Grid #}
+{% macro buildGrid(grid) -%}
+    <!--  Grid Layout -->
+    <div class="flex flex-wrap">
+
+        {% for gridItem in grid -%}
+            <div class="bg-grey p-2 w-{{ gridItem.columnWidth }}">
+                {{ gridItem.component.name | dump }}
+            </div>
+        {%- endfor %}
+
+    </div>
+{%- endmacro %}
+
+{# Grid #}
+{% macro gridItem(columnWidth) -%}
+    <!--  Grid Layout -->
+    <div class="bg-grey p-2 w-full md:w-{{ columnWidth }}">
+        {{ caller() }}
+    </div>
+{%- endmacro %}

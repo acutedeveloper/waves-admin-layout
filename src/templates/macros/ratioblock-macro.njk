@@ -1,0 +1,7 @@
+{% macro ratioblock(ratio="", content="Ratio Block", css="") %}
+    <div class="ratio-block ratio-block--{{ ratio }} {{ css }}">
+        <div class="ratio-block__content">
+            {{ content }}
+        </div>
+    </div>
+{% endmacro %}

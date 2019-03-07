@@ -1,0 +1,12 @@
+{% extends "base/base-layout.njk" %}
+
+{% import "macros/ratioblock-macro.njk" as ratioblock %}
+{% import "macros/layoutblock-macro.njk" as layoutblock %}
+{% import "macros/grid-macros.njk" as grid %}
+{% import "macros/panel-macro.njk" as panel %}
+
+
+{% block content %}
+    {% include "layout/sidebar.njk" %}
+    {% include "layout/main.njk" %}
+{% endblock %}

@@ -20,7 +20,7 @@ module.exports = {
     },
     html: {
         src: [
-            './src/**/*.html',
+            './src/**/*.{html,njk}',
         ],
         dest: './dist',
     },

@@ -1,0 +1,60 @@
+<!--Dropdown User Nav-->
+<nav data-pg-name="user-nav" class="user-nav js-menu">
+    <div class="static">
+        <button class="js-menu-toggle flex justify-center items-center bg-grey">
+            <span class=""><img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&fm=jpg&crop=faces&cs=srgb&w=70&h=70&fit=crop" alt="" class="block"> </span>
+            <span class="px-4">Alrando Johm </span>
+        </button>
+        <div class="js-menu-list hidden md:absolute">
+            <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Settings</a>
+            <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Billing</a>
+            <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Support</a>
+        </div>
+    </div>
+</nav>
+<script>
+    class Menu{
+
+        constructor(menuObject) {
+
+            this.parentMenu = document.querySelector(`.${menuObject.parentMenuClass}`);
+
+            if(this.parentMenu !== null){
+
+                this.menuToggle = this.parentMenu.querySelector(`.${menuObject.menuToggle}`);
+                this.menu = this.parentMenu.querySelector(`.${menuObject.menu}`);
+
+                this.setEvents();
+            } else {
+                console.error("You have not added a class to the element");
+            }
+
+        }
+
+        setEvents() {
+
+            this.menuToggle.addEventListener('click', function(e){
+                this.toggleMenu(e);
+            }.bind(this));
+
+        }
+
+        hideMenu() {
+            console.log('hide');
+            if(this.menu.classList.contains("js-active")){
+                this.menu.classList.remove("js-active");
+            }
+        }
+
+        toggleMenu(e) {
+            this.menu.classList.toggle("hidden");
+        }
+    }
+
+    const mainMenu = new Menu({
+        eventType: "hover",
+        parentMenuClass: "js-menu",
+        menuToggle: "js-menu-toggle",
+        menu: "js-menu-list"
+    });
+</script>
