@@ -11,156 +11,192 @@
 
 <body>
 
-    <div class="max-w-3xl w-full m-auto flex flex-wrap" data-pg="wrapper">
+    <div class="max-w-3xl w-full m-auto flex flex-wrap h-full bg-grey" data-pg="wrapper">
 
-        <aside class="w-1/5 ratio-block">
-            <h1>Aside</h1>
-
-            Vertical Menu
+        <aside class="hidden md:block md:w-1/5 ratio-block">
+            <!-- Vertical Menu Link -->
+            <div class="h-full flex-col justify-between hidden md:flex" data-pg-name="vertical-menu">
+                <ul class="list-reset" data-pg-name="vertical-menu__list">
+                    <li data-pg-name="vertical-menu__list-item">
+                        <a class="block p-2 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-l-4 border-white hover:border-purple" data-pg-name="vertical-menu__link">Link</a>
+                    </li>
+                    <li>
+                        <a class="block p-2 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-l-4 border-white hover:border-purple">Link</a>
+                    </li>
+                    <li>
+                        <a class="block p-2 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-l-4 border-white hover:border-purple">Link</a>
+                    </li>
+                    <li>
+                        <a class="block p-2 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-l-4 border-white hover:border-purple">Link</a>
+                    </li>
+                    <li>
+                        <a class="block p-2 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-l-4 border-white hover:border-purple">Link</a>
+                    </li>
+                    <li>
+                        <a class="block p-2 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-l-4 border-white hover:border-purple">Link</a>
+                    </li>
+                    <li>
+                        <a class="block p-2 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-l-4 border-white hover:border-purple">Link</a>
+                    </li>
+                </ul>
+            </div>
         </aside>
         <main class="flex-auto">
-            <h1>Main Content</h1>
+
             <!-- Header -->
-            <header class="ratio-block flex justify-between">
+            <header class="flex justify-between">
                 logo
-                <!--Dropdown User Nav-->
-                <nav data-pg-name="user-nav" class="user-nav js-menu">
-                    <div class="static">
-                        <button class="js-menu-toggle flex justify-center items-center bg-grey">
-                            <span class=""><img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&fm=jpg&crop=faces&cs=srgb&w=70&h=70&fit=crop" alt="" class="block"> </span>
-                            <span class="px-4">Alrando Johm </span>
-                        </button>
-                        <div class="js-menu-list hidden md:absolute">
-                            <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Settings</a>
-                            <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Billing</a>
-                            <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Support</a>
+
+                <div class="flex">
+                    <!--Dropdown User Nav-->
+                    <nav data-pg-name="user-nav" class="user-nav js-menu">
+                        <div class="static">
+                            <button class="js-menu-toggle flex justify-center items-center bg-grey">
+                                <span class=""><img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&fm=jpg&crop=faces&cs=srgb&w=70&h=70&fit=crop" alt="" class="block"> </span>
+                                <span class="px-4">Alrando Johm </span>
+                            </button>
+                            <div class="js-menu-list hidden md:absolute">
+                                <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Settings</a>
+                                <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Billing</a>
+                                <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark">Support</a>
+                            </div>
                         </div>
-                    </div>
-                </nav>
-                <script>
-                    class Menu {
+                    </nav>
+                    <script>
+                        class Menu {
 
-                        constructor(menuObject) {
+                            constructor(menuObject) {
 
-                            this.parentMenu = document.querySelector(`.${menuObject.parentMenuClass}`);
+                                this.parentMenu = document.querySelector(`.${menuObject.parentMenuClass}`);
 
-                            if (this.parentMenu !== null) {
+                                if (this.parentMenu !== null) {
 
-                                this.menuToggle = this.parentMenu.querySelector(`.${menuObject.menuToggle}`);
-                                this.menu = this.parentMenu.querySelector(`.${menuObject.menu}`);
+                                    this.menuToggle = this.parentMenu.querySelector(`.${menuObject.menuToggle}`);
+                                    this.menu = this.parentMenu.querySelector(`.${menuObject.menu}`);
 
-                                this.setEvents();
-                            } else {
-                                console.error("You have not added a class to the element");
+                                    this.setEvents();
+                                } else {
+                                    console.error("You have not added a class to the element");
+                                }
+
                             }
 
-                        }
+                            setEvents() {
 
-                        setEvents() {
+                                this.menuToggle.addEventListener('click', function(e) {
+                                    this.toggleMenu(e);
+                                }.bind(this));
 
-                            this.menuToggle.addEventListener('click', function(e) {
-                                this.toggleMenu(e);
-                            }.bind(this));
+                            }
 
-                        }
+                            hideMenu() {
+                                console.log('hide');
+                                if (this.menu.classList.contains("js-active")) {
+                                    this.menu.classList.remove("js-active");
+                                }
+                            }
 
-                        hideMenu() {
-                            console.log('hide');
-                            if (this.menu.classList.contains("js-active")) {
-                                this.menu.classList.remove("js-active");
+                            toggleMenu(e) {
+                                this.menu.classList.toggle("hidden");
                             }
                         }
 
-                        toggleMenu(e) {
-                            this.menu.classList.toggle("hidden");
-                        }
-                    }
-
-                    const mainMenu = new Menu({
-                        eventType: "hover",
-                        parentMenuClass: "js-menu",
-                        menuToggle: "js-menu-toggle",
-                        menu: "js-menu-list"
-                    });
-                </script>
+                        const mainMenu = new Menu({
+                            eventType: "hover",
+                            parentMenuClass: "js-menu",
+                            menuToggle: "js-menu-toggle",
+                            menu: "js-menu-list"
+                        });
+                    </script>
+                    <button class="p-4 md:hidden" data-pg-name="sidebar-toggle">|||</button>
+                </div>
             </header>
 
-            <!--  Grid Layout -->
-            <div class="flex flex-wrap">
-                <!--  Grid Layout -->
-                <div class="bg-grey p-2 w-full md:w-1/3">
-                    <!-- Panel Block -->
-                    <div class="p-12 h-16 rounded shadow bg-white">
-                        Panel Block
-                    </div>
-                </div>
-                <!--  Grid Layout -->
-                <div class="bg-grey p-2 w-full md:w-1/3">
-                    <!-- Panel Block -->
-                    <div class="p-12 h-16 rounded shadow bg-white">
-                        Panel Block
-                    </div>
-                </div>
-                <!--  Grid Layout -->
-                <div class="bg-grey p-2 w-full md:w-1/3">
-                    <!-- Panel Block -->
-                    <div class="p-12 h-16 rounded shadow bg-white">
-                        Panel Block
-                    </div>
-                </div>
-            </div>
 
             <!--  Grid Layout -->
             <div class="flex flex-wrap">
-                <!--  Grid Layout -->
+
+                <div class="bg-grey p-2 w-full md:w-1/3">
+                    <!-- Panel Block -->
+                    <div class="p-12 h-16 rounded shadow bg-white">
+
+                    </div>
+
+                </div>
+                <div class="bg-grey p-2 w-full md:w-1/3">
+                    <!-- Panel Block -->
+                    <div class="p-12 h-16 rounded shadow bg-white">
+
+                    </div>
+
+                </div>
+                <div class="bg-grey p-2 w-full md:w-1/3">
+                    <!-- Panel Block -->
+                    <div class="p-12 h-16 rounded shadow bg-white">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--  Grid Layout -->
+            <div class="flex flex-wrap">
+
                 <div class="bg-grey p-2 w-full md:w-2/3">
                     <!-- Panel Block -->
                     <div class="p-12 h-16 rounded shadow bg-white">
-                        Boobs
+
                     </div>
 
                     <!-- Panel Block -->
                     <div class="p-12 h-16 rounded shadow bg-white">
-                        New Boobs
+
                     </div>
 
                 </div>
-                <!--  Grid Layout -->
                 <div class="bg-grey p-2 w-full md:w-1/3">
                     <!-- Panel Block -->
                     <div class="p-12 h-16 rounded shadow bg-white">
-                        Boobs
+
                     </div>
 
                     <!-- Panel Block -->
                     <div class="p-12 h-16 rounded shadow bg-white">
-                        New Boobs
+
                     </div>
 
                 </div>
+
             </div>
 
             <!-- Main Footer -->
             <footer class="w-full">
+
+                <!--  Grid Layout -->
                 <div class="flex flex-wrap">
-                    <!--  Grid Layout -->
+
                     <div class="bg-grey p-2 w-full md:w-2/3">
                         <!-- Panel Block -->
                         <div class="p-12 h-16 rounded shadow bg-white">
-                            Panel Block
+                            Footer
                         </div>
+
                     </div>
-                    <!--  Grid Layout -->
                     <div class="bg-grey p-2 w-full md:w-1/3">
                         <!-- Panel Block -->
                         <div class="p-12 h-16 rounded shadow bg-white">
-                            Panel Block
+                            Footer
                         </div>
-                    </div>
-                </div>
-            </footer>
 
+                    </div>
+
+                </div>
+
+            </footer>
         </main>
+
 
     </div>
 

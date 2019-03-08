@@ -2,6 +2,14 @@
 
 Added nunjucks to the project
 
+----
+
+07/03/19 1hr Locking in Nunjucks
+
+I have locked in on a process with nunjucks to create nested grids using macros.
+
+---
+
 06/03/19 2hrs creating a layout with nunjucks
 
 I spent a couple of hours trying to get a process together which would output the layout I desired. It has been quite a slow process and I need to get my head into a pattern with nunchucks that would enable a nested layout to be created.
