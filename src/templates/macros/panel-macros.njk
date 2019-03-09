@@ -1,0 +1,6 @@
+{% macro getPanel(panelContent, name) -%}
+    <!-- Panel Block{% if name !== ''  %}:{{ name }}{% endif %} -->
+    <div class="p-12 h-16 rounded shadow bg-white border">
+        {{ panelContent }}
+    </div>
+{% endmacro %}

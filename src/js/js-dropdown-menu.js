@@ -22,8 +22,6 @@ class Menu{
             this.toggleMenu(e);
         }.bind(this));
 
-        console.log("Events Setup");
-
     }
 
     hideMenu() {
@@ -34,7 +32,7 @@ class Menu{
     }
 
     toggleMenu(e) {
-        this.menu.classList.toggle("block");
+        this.menu.classList.toggle("hidden");
     }
 }
 

@@ -1,12 +1,16 @@
-{% extends "base/base-layout.njk" %}
+<!-- index.nunjucks -->
+{% extends 'base-layout.njk' %}
+{% import 'macros/grid-macros.njk' as grid %}
+{% import 'macros/panel-macros.njk' as panel %}
 
-{% import "macros/ratioblock-macro.njk" as ratioblock %}
-{% import "macros/layoutblock-macro.njk" as layoutblock %}
-{% import "macros/grid-macros.njk" as grid %}
-{% import "macros/panel-macro.njk" as panel %}
+{% block sidebar %}
 
-
-{% block content %}
     {% include "layout/sidebar.njk" %}
+
+{% endblock %}
+
+{% block mainContent %}
+
     {% include "layout/main.njk" %}
+
 {% endblock %}

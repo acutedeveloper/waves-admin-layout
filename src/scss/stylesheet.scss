@@ -3,13 +3,12 @@
 
 @import "config/variables";
 @import "helpers/mixins";
-@import "helpers/ratio-blocks";
+@import "helpers/layout-blocks";
 
 @tailwind components;
 @tailwind utilities;
 
 /* Base Elements */
-@import "base/document";
 @import "base/typography";
 
 /* Components */

@@ -39,3 +39,60 @@ $line-height__x-small: 1.714;
 $line-height__xx-small: 1.23;
 
 $line-height__tiny: 1.333;
+
+
+/*------------------------------------*
+      TEXT SIZE CLASSES
+*------------------------------------*/
+.text-size {
+
+  &--jumbo, &--x-large, &--xx-large {
+    font-weight: 200;
+  }
+
+  &--jumbo{
+    font-size: $text-size__jumbo;
+    line-height: $line-height__jumbo;
+  }
+
+  &--xx-large{
+    font-size: $text-size__xx-large;
+    line-height: $line-height__xx-large;
+  }
+
+  &--x-large{
+    font-size: $text-size__x-large;
+    line-height: $line-height__x-large;
+  }
+
+  &--large{
+    font-size: $text-size__large;
+    line-height: $line-height__large;
+  }
+
+  &--medium{
+    font-size: $text-size__medium;
+    line-height: $line-height__medium;
+  }
+
+  &--small{
+    font-size: $text-size__small;
+    line-height: $line-height__small;
+  }
+
+  &--x-small{
+    font-size: $text-size__x-small;
+    line-height: $line-height__x-small;
+  }
+
+  &--xx-small{
+    font-size: $text-size__xx-small;
+    line-height: $line-height__xx-small;
+  }
+
+  &--tiny{
+    font-size: $text-size__tiny;
+    line-height: $line-height__tiny;
+  }
+
+}

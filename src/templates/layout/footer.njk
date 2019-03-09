@@ -1,15 +1,36 @@
-<!-- Main Footer -->
-<footer class="w-full">
-    {% set footerGrid = [
-        {
-            "columnWidth": "2/3"
-        },
-        {
-            "columnWidth": "1/3"
-        }
-    ] %}
-    {% call grid.buildGrid(footerGrid) -%}
-        {{ panel.getPanel("Footer") }}
-    {%- endcall %}
+<!-- Footer -->
+<footer class="layout-block layout-block--nopadding flex flex-wrap">
 
+    <div class="layout-block w-full xl:w-3/5">
+        <!-- 3 Up Grid Row -->
+        {% set footergrid = [
+            {
+                "columnWidth": "w-full sm:w-1/3"
+            },
+            {
+                "columnWidth": "w-full sm:w-1/3"
+            },
+            {
+                "columnWidth": "w-full sm:w-1/3"
+            }
+        ] %}
+        {% call grid.buildGrid(footergrid) -%}
+            <div class="layout-block"></div>
+        {%- endcall %}
+    </div>
+
+    <div class="layout-block w-full xl:w-2/5">
+        <!-- 2 Up Grid Row -->
+        {% set footergrid = [
+            {
+                "columnWidth": "w-full sm:w-1/3"
+            },
+            {
+                "columnWidth": "w-full sm:w-2/3"
+            }
+        ] %}
+        {% call grid.buildGrid(footergrid) -%}
+            <div class="layout-block"></div>
+        {%- endcall %}
+    </div>
 </footer>

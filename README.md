@@ -4,6 +4,15 @@ Added nunjucks to the project
 
 ----
 
+08/03/19 1hr Yo Yo Yo!
+
+Basically I re-did the project code base using Yeoman to help flesh out the project.
+I have created template files for those common components.
+There are macros for generating nested HTML grid layouts.
+The process was definatly smoother as opposed to manually creating the code or copying and pasting.
+
+----
+
 07/03/19 1hr Locking in Nunjucks
 
 I have locked in on a process with nunjucks to create nested grids using macros.

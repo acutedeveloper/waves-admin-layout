@@ -1,21 +1,39 @@
 {# Grid #}
 {% macro buildGrid(grid) -%}
-    <!--  Grid Layout -->
-    <div class="flex flex-wrap">
+  <div class="flex flex-wrap ">
 
-        {% for gridItem in grid -%}
-            <div class="bg-grey p-2 w-full md:w-{{ gridItem.columnWidth }}">
-                {{ caller() }}
-            </div>
-        {%- endfor %}
-
-    </div>
-{%- endmacro %}
-
-{# Grid #}
-{% macro gridItem(columnWidth) -%}
-    <!--  Grid Layout -->
-    <div class="bg-grey p-2 w-full md:w-{{ columnWidth }}">
+      {% for gridItem in grid -%}
+      <div class="p-2 {{ gridItem.columnWidth }}">
         {{ caller() }}
-    </div>
+      </div>
+      {%- endfor %}
+
+  </div>
 {%- endmacro %}
+
+{# Grid Item #}
+
+{# Layout|Component block #}
+{% macro ratioBlock(ratio = "1x1", content = "Ratio Block", cssClasses = "") %}
+  <div class="ratio-block ratio-block--{{ratio}} {{ cssClasses }}">
+    <div class="ratio-block__content">
+      {{ content }}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro buildPage(blocks) %}
+    {% for block in blocks -%}
+        {% if block.name == 'grid' %}
+            {% if block.comment %}<!-- {{ block.comment }} -->{% endif %}
+            {{ buildGrid(block.columns) }}
+        {% elseif block.component %}
+            {% include 'components/' + block.component + '.njk' %}
+        {% else %}
+            {% if block.comment %}<!-- {{ block.comment }} -->{% endif %}
+            <div class="bg-grey p-2 border border-grey-dark relative {{ block.cssClasses }}">
+            <div class="absolute pin-l pin-t">{{ block.name }}</div> {% if block.content %}{{ buildPage(block.content) }}{% endif %}
+        </div>
+        {% endif %}
+    {%- endfor %}
+{% endmacro %}
