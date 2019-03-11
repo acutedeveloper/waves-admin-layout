@@ -1,0 +1,36 @@
+/*------------------------------------*
+	SVG ARTWORK COLORS
+*------------------------------------*/
+
+$bit-of-blue: #E3E8EB;
+$emptyness: #FBFCFC;
+$frosted-glass: #EAEFF1;
+$shiny-grey: #DEE9EC;
+$mysterious: #515E63;
+$grapefruit: #FF5C5C;
+$common-feldspar: #829298;
+$white-porcelain: #F7FAFA;
+$jade-dust: #00C5DC;
+$indigo-light: #5767C3;
+$too-gold: #FFB822;
+
+/*------------------------------------*
+	SASS TEXTURES
+*------------------------------------*/
+
+//TODO - Convert to mixin
+
+.grey-gradient {
+  background: #E3E8EB;
+  background-image: linear-gradient(0deg, #E3E8EB 0%, #FBFCFC 100%);
+}
+
+.grey-light-gradient {
+  background: #FCFCFC;
+  background-image: linear-gradient(-180deg, #FCFCFC 0%, #EAEFF1 100%);
+}
+
+.shiny-grey {
+  border-right: 1px $shiny-grey solid;
+}
+

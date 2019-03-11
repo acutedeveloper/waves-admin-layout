@@ -1,10 +1,67 @@
+/* montserrat-300 - latin */
+@font-face {
+  font-family: 'Montserrat-light';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/montserrat/montserrat-v12-latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Montserrat Light'), local('Montserrat-Light'),
+  url('../fonts/montserrat/montserrat-v12-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/montserrat/montserrat-v12-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-300.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/montserrat/montserrat-v12-latin-300.svg#Montserrat') format('svg'); /* Legacy iOS */
+}
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat--regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/montserrat/montserrat-v12-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+  url('../fonts/montserrat/montserrat-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/montserrat/montserrat-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/montserrat/montserrat-v12-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
+}
+/* montserrat-600 - latin */
+@font-face {
+  font-family: 'Montserrat--semi-bold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/montserrat/montserrat-v12-latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'),
+  url('../fonts/montserrat/montserrat-v12-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/montserrat/montserrat-v12-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-600.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/montserrat/montserrat-v12-latin-600.svg#Montserrat') format('svg'); /* Legacy iOS */
+}
+/* montserrat-700 - latin */
+@font-face {
+  font-family: 'Montserrat--bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/montserrat/montserrat-v12-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+  url('../fonts/montserrat/montserrat-v12-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/montserrat/montserrat-v12-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-700.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/montserrat/montserrat-v12-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/montserrat/montserrat-v12-latin-700.svg#Montserrat') format('svg'); /* Legacy iOS */
+}
+
 /*------------------------------------*
 	SVG ARTWORK FONT FACES
 *------------------------------------*/
 
-$font-family__light: "helveticaneue-light, helvetica neue";
-$font-family__regular: "helveticaneue, helvetica neue";
-$font-family__medium: "helveticaneue-medium, helvetica neue";
+$font-family__light: #{"Montserrat--light, helvetica neue"};
+$font-family__regular: #{"Montserrat--regular, helvetica neue"};
+$font-family__medium: #{"Montserrat-semibold, helvetica neue"};
+
+body {
+  font-family: $font-family__regular;
+}
 
 /*------------------------------------*
 	SASS FONT SIZE VARIABLES
@@ -12,53 +69,26 @@ $font-family__medium: "helveticaneue-medium, helvetica neue";
 
 $font-base-size: 16;
 
-$text-size__jumbo: px-to-rem(52, $font-base-size);
-
-$text-size__xx-large: px-to-rem(36, $font-base-size);
-$text-size__x-large: px-to-rem(28, $font-base-size);
-$text-size__large: px-to-rem(19, $font-base-size);
-$text-size__medium: px-to-rem(18, $font-base-size);
-$text-size__small: px-to-rem(16, $font-base-size);
-$text-size__x-small: px-to-rem(14, $font-base-size);
-$text-size__xx-small: px-to-rem(13, $font-base-size);
-
-$text-size__tiny: px-to-rem(12, $font-base-size);
+$text-size__x-large: px-to-rem(38, $font-base-size);
+$text-size__large: px-to-rem(22, $font-base-size);
+$text-size__medium: px-to-rem(16, $font-base-size);
+$text-size__small: px-to-rem(14, $font-base-size);
+$text-size__x-small: px-to-rem(12, $font-base-size);
 
 /*------------------------------------*
 	SASS LINE HEIGHT VARIABLES
 *------------------------------------*/
 
-$line-height__jumbo: 1.07;
-
-$line-height__xx-large: 1.11;
-$line-height__x-large: 1.142;
-$line-height__large: 1.26;
-$line-height__medium: 1.26;
-$line-height__small: 1.5;
-$line-height__x-small: 1.714;
-$line-height__xx-small: 1.23;
-
-$line-height__tiny: 1.333;
-
+$line-height__x-large: 1.0526;
+$line-height__large: 1.454;
+$line-height__medium: 1;
+$line-height__small: 1.1429;
+$line-height__x-small: 1.333;
 
 /*------------------------------------*
       TEXT SIZE CLASSES
 *------------------------------------*/
 .text-size {
-
-  &--jumbo, &--x-large, &--xx-large {
-    font-weight: 200;
-  }
-
-  &--jumbo{
-    font-size: $text-size__jumbo;
-    line-height: $line-height__jumbo;
-  }
-
-  &--xx-large{
-    font-size: $text-size__xx-large;
-    line-height: $line-height__xx-large;
-  }
 
   &--x-large{
     font-size: $text-size__x-large;
@@ -83,16 +113,6 @@ $line-height__tiny: 1.333;
   &--x-small{
     font-size: $text-size__x-small;
     line-height: $line-height__x-small;
-  }
-
-  &--xx-small{
-    font-size: $text-size__xx-small;
-    line-height: $line-height__xx-small;
-  }
-
-  &--tiny{
-    font-size: $text-size__tiny;
-    line-height: $line-height__tiny;
   }
 
 }
