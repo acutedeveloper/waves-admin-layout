@@ -5,17 +5,32 @@
     <!-- 3 Up Grid Row -->
     {% set grid1 = [
         {
-            "columnWidth": "w-full md:w-1/3"
+            "columnWidth": "w-full md:w-1/3",
+            "templateData": {
+                "include": "components/panel/panel-mini-chart.njk",
+                "title": "New Customers",
+                "bigNumber": "142"
+            }
         },
         {
-            "columnWidth": "w-full md:w-1/3"
+            "columnWidth": "w-full md:w-1/3",
+            "templateData": {
+                "include": "components/panel/panel-mini-chart.njk",
+                "title": "Active Users",
+                "bigNumber": "384"
+            }
         },
         {
-            "columnWidth": "w-full md:w-1/3"
+            "columnWidth": "w-full md:w-1/3",
+            "templateData": {
+                "include": "components/panel/panel-mini-chart.njk",
+                "title": "Sales",
+                "bigNumber": "$1047"
+            }
         }
     ] %}
-    {% call grid.buildGrid(grid1) -%}
-        {{ panel.getPanel() }}
+    {% call(gridItem) grid.buildGrid(grid1) -%}
+        {{ panel.getPanel(gridItem.templateData) }}
     {%- endcall %}
 
     <!-- 2 Up Grid Row -->

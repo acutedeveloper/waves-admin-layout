@@ -13,31 +13,32 @@
     <div class="max-w-3xl w-full m-auto flex">
 
 
-        <aside class="grey-light-gradient w-1/5 hidden lg:block shiny-grey">
+        <aside class="grey-light-gradient w-32 hidden lg:block shiny-grey">
             <!-- Vertical Menu Link -->
             <div class="h-full flex-col justify-between hidden md:flex mt-10" data-pg-name="vertical-menu">
                 <ul class="list-reset" data-pg-name="vertical-menu__list">
-                    <li data-pg-name="vertical-menu__list-item">
-                        <a class="block p-5 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple" data-pg-name="vertical-menu__link">Link</a>
-                    </li>
-                    <li>
-                        <a class="block p-5 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple">Link</a>
-                    </li>
-                    <li>
-                        <a class="block p-5 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple">Link</a>
-                    </li>
-                    <li>
-                        <a class="block p-5 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple">Link</a>
-                    </li>
-                    <li>
-                        <a class="block p-5 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple">Link</a>
-                    </li>
-                    <li>
-                        <a class="block p-5 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple">Link</a>
-                    </li>
-                    <li>
-                        <a class="block p-5 flex justify-between items-center hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple">Link</a>
-                    </li>
+                    <div class="h-full flex-col justify-between hidden md:flex mt-10" data-pg-name="vertical-menu">
+                        <ul class="list-reset" data-pg-name="vertical-menu__list">
+                            <li data-pg-name="vertical-menu__list-item">
+                                <a class="block hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple text-right flex-col flex p-8 items-end" data-pg-name="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="icon-home-outline text-size--large"></span> <span data-pg-name="vertical-menu__link-text">Home</span></a>
+                            </li>
+                            <li data-pg-name="vertical-menu__list-item" data-pg-collapsed>
+                                <a class="block hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple text-right flex-col flex p-8 items-center" data-pg-name="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="icon-users-outline text-size--large"></span> <span data-pg-name="vertical-menu__link-text">Users</span></a>
+                            </li>
+                            <li data-pg-name="vertical-menu__list-item" data-pg-collapsed>
+                                <a class="block hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple text-right flex-col flex p-8 items-center" data-pg-name="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="icon-box text-size--large"></span> <span data-pg-name="vertical-menu__link-text">Packages</span></a>
+                            </li>
+                            <li data-pg-name="vertical-menu__list-item" data-pg-collapsed>
+                                <a class="block hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple text-right flex-col flex p-8 items-center" data-pg-name="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="text-size--large icon-chart-line"></span> <span data-pg-name="vertical-menu__link-text">Analytics</span></a>
+                            </li>
+                            <li data-pg-name="vertical-menu__list-item" data-pg-collapsed>
+                                <a class="block hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple text-right flex-col flex p-8 items-center" data-pg-name="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="icon-qrcode text-size--large"></span> <span data-pg-name="vertical-menu__link-text" class="whitespace-no-wrap">QR Code</span></a>
+                            </li>
+                            <li data-pg-name="vertical-menu__list-item" data-pg-collapsed>
+                                <a class="block hover:bg-purple-lightest hover:text-purple border-solid border-r-4 border-white hover:border-purple text-right flex-col flex p-8 items-center" data-pg-name="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="text-size--large icon-chat"></span> <span data-pg-name="vertical-menu__link-text">Chat</span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </ul>
             </div>
         </aside>
@@ -87,25 +88,58 @@
 
             <!-- 3 Up Grid Row -->
 
-            <div class="flex flex-wrap -m-2">
+            <div class="flex flex-wrap -m-2" data-pg-name="grid">
 
-                <div class="p-2 w-full md:w-1/3">
+                <div class="p-2 w-full md:w-1/3" data-pg-name="grid__item">
+
                     <!-- Panel Block: -->
-                    <div class="p-12 h-16 rounded-sm shadow bg-white">
+                    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+
+                        <div class="justify-between p-4 md:p-8 flex flex-wrap">
+                            <div>
+                                <div class="text-size--small uppercase">New Customers</div>
+                                <div class="text-size--x-large">142</div>
+                            </div>
+                            <div>
+                                <img src="https://via.placeholder.com/145x45">
+                            </div>
+                        </div>
 
                     </div>
 
                 </div>
-                <div class="p-2 w-full md:w-1/3">
+                <div class="p-2 w-full md:w-1/3" data-pg-name="grid__item">
+
                     <!-- Panel Block: -->
-                    <div class="p-12 h-16 rounded-sm shadow bg-white">
+                    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+
+                        <div class="justify-between p-4 md:p-8 flex flex-wrap">
+                            <div>
+                                <div class="text-size--small uppercase">Active Users</div>
+                                <div class="text-size--x-large">384</div>
+                            </div>
+                            <div>
+                                <img src="https://via.placeholder.com/145x45">
+                            </div>
+                        </div>
 
                     </div>
 
                 </div>
-                <div class="p-2 w-full md:w-1/3">
+                <div class="p-2 w-full md:w-1/3" data-pg-name="grid__item">
+
                     <!-- Panel Block: -->
-                    <div class="p-12 h-16 rounded-sm shadow bg-white">
+                    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+
+                        <div class="justify-between p-4 md:p-8 flex flex-wrap">
+                            <div>
+                                <div class="text-size--small uppercase">Sales</div>
+                                <div class="text-size--x-large">$1047</div>
+                            </div>
+                            <div>
+                                <img src="https://via.placeholder.com/145x45">
+                            </div>
+                        </div>
 
                     </div>
 
@@ -115,28 +149,40 @@
 
             <!-- 2 Up Grid Row -->
 
-            <div class="flex flex-wrap -m-2">
+            <div class="flex flex-wrap -m-2" data-pg-name="grid">
 
-                <div class="p-2 w-full md:w-2/3">
+                <div class="p-2 w-full md:w-2/3" data-pg-name="grid__item">
+
                     <!-- Panel Block: -->
-                    <div class="p-12 h-16 rounded-sm shadow bg-white">
+                    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+
+                        Content
 
                     </div>
 
+
                     <!-- Panel Block: -->
-                    <div class="p-12 h-16 rounded-sm shadow bg-white">
+                    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+
+                        Content
 
                     </div>
 
                 </div>
-                <div class="p-2 w-full md:w-1/3">
+                <div class="p-2 w-full md:w-1/3" data-pg-name="grid__item">
+
                     <!-- Panel Block: -->
-                    <div class="p-12 h-16 rounded-sm shadow bg-white">
+                    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+
+                        Content
 
                     </div>
 
+
                     <!-- Panel Block: -->
-                    <div class="p-12 h-16 rounded-sm shadow bg-white">
+                    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+
+                        Content
 
                     </div>
 
@@ -150,15 +196,15 @@
                 <div class="layout-block w-full xl:w-3/5">
                     <!-- 3 Up Grid Row -->
 
-                    <div class="flex flex-wrap -m-2">
+                    <div class="flex flex-wrap -m-2" data-pg-name="grid">
 
-                        <div class="p-2 w-full sm:w-1/3">
+                        <div class="p-2 w-full sm:w-1/3" data-pg-name="grid__item">
                             <div class="layout-block"></div>
                         </div>
-                        <div class="p-2 w-full sm:w-1/3">
+                        <div class="p-2 w-full sm:w-1/3" data-pg-name="grid__item">
                             <div class="layout-block"></div>
                         </div>
-                        <div class="p-2 w-full sm:w-1/3">
+                        <div class="p-2 w-full sm:w-1/3" data-pg-name="grid__item">
                             <div class="layout-block"></div>
                         </div>
 
@@ -168,12 +214,12 @@
                 <div class="layout-block w-full xl:w-2/5">
                     <!-- 2 Up Grid Row -->
 
-                    <div class="flex flex-wrap -m-2">
+                    <div class="flex flex-wrap -m-2" data-pg-name="grid">
 
-                        <div class="p-2 w-full sm:w-1/3">
+                        <div class="p-2 w-full sm:w-1/3" data-pg-name="grid__item">
                             <div class="layout-block"></div>
                         </div>
-                        <div class="p-2 w-full sm:w-2/3">
+                        <div class="p-2 w-full sm:w-2/3" data-pg-name="grid__item">
                             <div class="layout-block"></div>
                         </div>
 
