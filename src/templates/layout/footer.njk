@@ -1,36 +1,57 @@
 <!-- Footer -->
-<footer class="layout-block layout-block--nopadding flex flex-wrap">
+<footer class="flex flex-wrap mt-16" data-pg-name="footer">
 
-    <div class="layout-block w-full xl:w-3/5">
+    <div class="w-full xl:w-3/5" data-pg-name="footer__column-left">
         <!-- 3 Up Grid Row -->
         {% set footergrid = [
             {
-                "columnWidth": "w-full sm:w-1/3"
+                "columnWidth": "w-full sm:w-1/3",
+                "templateData": {
+                    "include": "components/footer/footer-list.njk",
+                    "footerTitle": "Quick Links",
+                    "footerList": ["Dashboard", "Users", "Products", "Payment History", "Reports", "Promocodes"]
+                }
             },
             {
-                "columnWidth": "w-full sm:w-1/3"
+                "columnWidth": "w-full sm:w-1/3",
+                "templateData": {
+                    "include": "components/footer/footer-list.njk",
+                    "footerTitle": "Information",
+                    "footerList": ["Terms & Conditions", "Privacy Policy", "Cookie Policy", "Payment History", "Help", "Contact"]
+                }
             },
             {
-                "columnWidth": "w-full sm:w-1/3"
+                "columnWidth": "w-full sm:w-1/3",
+                "templateData": {
+                    "include": "components/footer/footer-list.njk",
+                    "footerTitle": "Other",
+                    "footerList": ["About Us", "Branding", "Advertising", "Press"]
+                }
             }
         ] %}
-        {% call grid.buildGrid(footergrid) -%}
-            <div class="layout-block"></div>
+        {% call(gridItem) grid.buildGrid(footergrid) -%}
+            {% include gridItem.templateData.include %}
         {%- endcall %}
     </div>
 
-    <div class="layout-block w-full xl:w-2/5">
+    <div class="w-full xl:w-2/5">
         <!-- 2 Up Grid Row -->
         {% set footergrid = [
             {
-                "columnWidth": "w-full sm:w-1/3"
+                "columnWidth": "w-full sm:w-1/3",
+                "templateData": {
+                    "include": "components/footer/footer-social.njk"
+                }
             },
             {
-                "columnWidth": "w-full sm:w-2/3"
+                "columnWidth": "w-full sm:w-2/3",
+                "templateData": {
+                    "include": "components/footer/footer-contact.njk"
+                }
             }
         ] %}
-        {% call grid.buildGrid(footergrid) -%}
-            <div class="layout-block"></div>
+        {% call(gridItem) grid.buildGrid(footergrid) -%}
+            {% include gridItem.templateData.include %}
         {%- endcall %}
     </div>
 </footer>

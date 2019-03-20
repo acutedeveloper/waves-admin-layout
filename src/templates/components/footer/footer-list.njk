@@ -1,0 +1,9 @@
+<!-- Footer List -->
+<div data-pg-name="footer__list-wrap">
+    <div data-pg-name="footer__heading" class="mb-2 uppercase text-color--mysterious">{{ gridItem.templateData.footerTitle }}</div>
+    <ul class="list-reset hidden sm:block" data-pg-name="footer__list">
+        {% for item in gridItem.templateData.footerList %}
+            <li data-pg-name="footer__list-item" class="mt-2 text-size--small text-grey-dark"><a class="no-underline text-grey-dark" href="#">{{ item }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

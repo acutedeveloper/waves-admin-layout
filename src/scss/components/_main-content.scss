@@ -1,0 +1,6 @@
+.main-content {
+  @apply flex-auto grey-gradient p-5;
+  @screen md {
+    @apply p-10;
+  }
+}

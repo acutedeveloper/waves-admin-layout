@@ -1,0 +1,6 @@
+.sidebar-toggle {
+  @apply p-4;
+  @screen md {
+    @apply hidden;
+  }
+}

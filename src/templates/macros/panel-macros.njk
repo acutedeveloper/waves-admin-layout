@@ -1,6 +1,6 @@
-{% macro getPanel(panelContent, name) %}
-    <!-- Panel Block{% if name !== '' %}:{{ name }}{% endif %} -->
-    <div class="rounded-sm shadow bg-white" data-pg-name="panel">
+{% macro getPanel(panelContent, name='') %}
+    <!-- Panel Block{% if name !== '' %} : {{ name }}{% endif %} -->
+    <div class="panel" data-pg-name="panel">
         {% if panelContent.include %}
             {% include panelContent.include %}
         {% else %}

@@ -1,5 +1,5 @@
 <!-- Main Content -->
-<main class="flex-auto grey-gradient px-5">
+<main class="flex-auto grey-gradient p-5 md:p-10">
     {% include "layout/header.njk" %}
 
     <!-- 3 Up Grid Row -->
@@ -30,21 +30,33 @@
         }
     ] %}
     {% call(gridItem) grid.buildGrid(grid1) -%}
-        {{ panel.getPanel(gridItem.templateData) }}
+        {{ panel.getPanel(gridItem.templateData, gridItem.templateData.title) }}
     {%- endcall %}
 
     <!-- 2 Up Grid Row -->
     {% set grid2 = [
         {
-            "columnWidth": "w-full md:w-2/3"
+            "columnWidth": "w-full md:w-2/3",
+            "templateData": {
+                "include": "components/panel/panel-daily-sales.njk"
+            },
+            "templateData2": {
+                "include": "components/panel/panel-recently-sold.njk"
+            }
         },
         {
-            "columnWidth": "w-full md:w-1/3"
+            "columnWidth": "w-full md:w-1/3",
+            "templateData": {
+                "include": "components/panel/panel-main-categories.njk"
+            },
+            "templateData2": {
+                "include": "components/panel/panel-regions-report.njk"
+        }
         }
     ] %}
-    {% call grid.buildGrid(grid2) -%}
-        {{ panel.getPanel() }}
-        {{ panel.getPanel() }}
+    {% call(gridItem)  grid.buildGrid(grid2) -%}
+        {{ panel.getPanel(gridItem.templateData) }}
+        {{ panel.getPanel(gridItem.templateData2) }}
     {%- endcall %}
 
     {% include "layout/footer.njk" %}

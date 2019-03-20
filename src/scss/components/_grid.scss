@@ -1,0 +1,11 @@
+.grid {
+  @apply flex flex-wrap -m-2;
+
+  &__item {
+    @apply p-2 w-full;
+    @screen md {
+      @apply w-1/3;
+    }
+  }
+
+}

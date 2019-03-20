@@ -2,6 +2,11 @@ const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const browsersync = require('browser-sync');
 
+const multiDest = require('gulp-multi-dest');
+const destOptions = {
+    mode: 0755
+};
+
 const paths = require('./GulpConfig');
 
 function html() {
@@ -26,12 +31,12 @@ function html() {
 
 function images() {
     return gulp.src(paths.images.src)
-        .pipe(gulp.dest(paths.images.dest));
+        .pipe(multiDest([paths.images.dest, paths.images.tailwind], destOptions));
 }
 
 function fonts() {
     return gulp.src(paths.fonts.src)
-        .pipe(gulp.dest(paths.fonts.dest));
+        .pipe(multiDest([paths.fonts.dest, paths.fonts.tailwind], destOptions));
 }
 
 function scss() {
@@ -50,7 +55,7 @@ function scss() {
             cssnano()
         ]))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(multiDest([paths.styles.dest, paths.styles.tailwind], destOptions));
 
 }
 
@@ -70,8 +75,7 @@ function js() {
         }))
         .pipe(concat('all.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/js'));
-
+        .pipe(multiDest([paths.js.dest, paths.js.tailwind], destOptions));
 }
 
 function browserSync(done) {

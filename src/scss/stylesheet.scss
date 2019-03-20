@@ -12,6 +12,18 @@
 @import "base/typography";
 
 /* Components */
+@import "components/wrapper";
+@import "components/sidebar";
+@import "components/vertical-menu";
+@import "components/main-content";
+@import "components/header";
+@import "components/data-group-media";
+@import "components/user-nav";
+@import "components/sidebar-toggle";
+@import "components/grid";
+@import "components/panel";
+@import "components/panel-table";
+@import "components/footer";
 
 /* Vendors */
 @import "vendors/fontello";

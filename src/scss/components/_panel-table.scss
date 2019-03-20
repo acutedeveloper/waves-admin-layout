@@ -1,0 +1,19 @@
+.panel-table {
+  @apply w-full;
+
+  &__row {
+    @apply border-t;
+
+  }
+
+  &__cell {
+    @apply py-4;
+
+  }
+
+  &__cell-flex {
+    @apply flex justify-between;
+
+  }
+
+}

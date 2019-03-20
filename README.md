@@ -4,6 +4,15 @@ Added nunjucks to the project
 
 ----
 
+20/03/19 LT Hitting Final Pieces
+
+I have added in Chart JS to the project. Have added in a decent table layout that works across screens.
+Footer layout is better, however can do with some tweaking.
+
+I have gotten the project to a point where it is ready for SassWind to be added for class extraction.
+
+----
+
 08/03/19 1hr Yo Yo Yo!
 
 Basically I re-did the project code base using Yeoman to help flesh out the project.
