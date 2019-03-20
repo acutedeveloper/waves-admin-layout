@@ -1,0 +1,21 @@
+.dropdown {
+  @apply float-right static relative;
+
+  &__button {
+    @apply rounded flex items-center text-left;
+
+  }
+
+  &__avatar {
+    @apply block rounded;
+
+  }
+
+  &__label-content {
+    @apply px-4 hidden relative;
+    @screen md {
+      @apply block;
+    }
+  }
+
+}

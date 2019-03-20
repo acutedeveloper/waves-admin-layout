@@ -1,4 +1,39 @@
 .header {
-  @apply flex justify-between items-center mb-10;
+  @apply justify-between mb-10 items-center;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  &__notification-button {
+    @apply float-right p-4;
+
+  }
+
+  &__group {
+    @apply flex float-left;
+
+  }
+
+  &__media {
+    @apply flex;
+
+  }
+
+  &__media-content {
+    @apply pl-4 hidden;
+    @screen md {
+      @apply block;
+    }
+  }
+
+  &__sidebar-toggle {
+    @apply p-4;
+    @screen md {
+      @apply hidden;
+    }
+  }
 
 }

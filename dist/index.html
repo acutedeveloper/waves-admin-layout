@@ -50,10 +50,11 @@
         <main class="flex-auto grey-gradient p-5 md:p-10">
             <header class="justify-between mb-10 items-center clearfix" data-pg-name="header">
                 <!-- Media Group -->
-                <div class="static h-full flex float-right user-nav js-menu" data-pg-name="user-nav">
-                    <button class="js-menu-toggle flex text-left items-center" data-pg-name="user-nav__button" data-pg-collapsed>
-                        <img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&fm=jpg&crop=faces&cs=srgb&w=50&h=50&fit=crop" alt="" class="block rounded" data-pg-name="user-nav__avatar">
-                        <div class="px-4 hidden md:block relative" data-pg-name="user-nav__label-content" data-pg-collapsed>
+                <div data-pg-name="dropdown" data-pgc="tw.dropdown-menu" class="float-right static relative">
+                    <!-- Button -->
+                    <button class="rounded hover:bg-grey-dark flex items-center text-left" data-pg-name="dropdown__button" data-pg-collapsed>
+                        <img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&amp;fm=jpg&amp;crop=faces&amp;cs=srgb&amp;w=50&amp;h=50&amp;fit=crop" alt="" class="block rounded" data-pg-name="dropdown__avatar">
+                        <div class="px-4 hidden md:block relative" data-pg-name="dropdown__label-content" data-pg-collapsed>
                             <div data-pg-collapsed>
                                 <p class="text-color--mysterious">Olive Houston</p>
                                 <p class="text-color--common-feldspar text-size--small">Marketing Specialist</p>
@@ -61,11 +62,12 @@
                             <i class="icon-down-dir absolute pin-r pin-t"></i>
                         </div>
                     </button>
-                    <div class="js-menu-list hidden md:absolute md:w-16 bg-grey" data-pg-name="user-nav__list" data-pg-collapsed>
-                        <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark" data-pg-name="user-nav__list-item">Settings</a>
-                        <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark" data-pg-name="user-nav__list-item">Billing</a>
-                        <a href="#" class="block hover:text-white p-2 no-underline hover:bg-grey-dark" data-pg-name="user-nav__list-item">Support</a>
+                    <div class="mt-2 absolute flex flex-col border rounded shadow bg-white py-1 pin-r" data-pg-name="dropbow__menu">
+                        <a href="#" class="px-4 py-2 no-underline hover:bg-grey-dark hover:text-white text-grey-darkest whitespace-no-wrap" data-pg-name="dropdown__menu-item">Link Item</a>
+                        <a href="#" class="px-4 py-2 no-underline border-t hover:bg-grey-dark hover:text-white text-grey-darkest whitespace-no-wrap" data-pg-name="dropdown__menu-item">Longer Link Item</a>
+                        <a href="#" class="px-4 py-2 no-underline border-t hover:bg-grey-dark hover:text-white text-grey-darkest whitespace-no-wrap" data-pg-name="dropdown__menu-item">Another Link Item</a>
                     </div>
+                    <!-- Dropdown -->
                 </div>
                 <button class="float-right p-4" data-pg-name="header__notification-button" data-pg-collapsed>
                     <i class="icon-bell"></i>
@@ -157,14 +159,15 @@
                     <!-- Panel Block -->
                     <div class="panel" data-pg-name="panel">
 
-                        <div class="panel__header" data-pg-name="panel__header" data-pg-collapsed>
-                            <div data-pg-name="panel__group" data-pg-collapsed>
-                                <div class="uppercase text-size--medium mb-1">Daily Sales</div>
-                                <p class="text-size--x-small">Use your mouse to see statistics from a particular day</p>
+                        <div class="flex justify-between items-center p-4 md:p-8" data-pg-name="panel__header" data-pg-collapsed>
+                            <div data-pg-name="panel__group">
+                                <div class="uppercase text-size--medium mb-1 text-color--mysterious" data-pg-name="panel__title">Daily Sales</div>
+                                <p class="text-size--x-small text-color--mysterious" data-pg-name="panel__content">Use your mouse to see statistics from a particular day</p>
                             </div>
-                            <div data-pg-name="panel__group" data-pg-collapsed>
-                                <button class="js-menu-toggle flex justify-center items-center" data-pg-collapsed="">
-                                    <span class="px-4">Select Range</span>
+                            <div data-pg-name="panel__group">
+                                <button class="js-menu-toggle flex justify-center items-center whitespace-no-wrap" data-pg-name="panel__button">
+                                    <span class="md:hidden icon-clock p-2" data-pg-name="panel__button-mobile-icon"></span>
+                                    <span class="hidden md:inline text-size--x-small" data-pg-collapsed data-pg-name="panel__button-desktop-icon"><i class="icon-clock mr-2"></i>Select Range</span>
                                 </button>
                             </div>
                         </div>
@@ -173,6 +176,8 @@
                             <canvas id="dailySales"></canvas>
 
                         </div>
+
+
 
                     </div>
 
@@ -432,6 +437,8 @@
                                 </div>
                                 <p class="text-size--small text-right">v1.4, November 14, 2016</p>
                                 <p class="text-size--small text-right">© 2016 Dashboard, Inc. All Rights Reserved</p>
+                                <br />
+                                <br />
                                 <p class="text-size--small text-right">All Systems Operational Check out our status page for more details</p>
                             </div>
                         </div>

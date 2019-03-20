@@ -1,18 +1,39 @@
 .panel-table {
-  @apply w-full;
+  @apply w-full border-b;
 
   &__row {
     @apply border-t;
 
   }
 
-  &__cell {
-    @apply py-4;
+  &__cell-first {
+    @apply hidden w-16;
+    @screen md {
+      @apply table-cell;
+    }
+  }
+
+  &__image {
+    @apply ml-4;
 
   }
 
-  &__cell-flex {
-    @apply flex justify-between;
+  &__cell-second {
+    @apply p-4 align-top flex justify-between flex-col;
+    @screen md {
+      @apply flex-row;
+    }
+  }
+
+  &__group--flex {
+    @apply flex items-center mt-2;
+    @screen md {
+      @apply mt-0;
+    }
+  }
+
+  &__cell-last {
+    @apply w-24 py-4 align-top;
 
   }
 

@@ -1,10 +1,5 @@
 .panel {
-  $self: &;
   @apply rounded-sm shadow bg-white;
-
-  & + & {
-    margin-top: 1rem;
-  }
 
   &__header {
     @apply flex justify-between items-center p-4 flex-wrap;
@@ -13,15 +8,62 @@
     }
   }
 
+  &__title {
+    @apply uppercase;
+    //text-size--medium mb-1 text-color--mysterious;
+  }
+
   &__content {
-    @apply p-4 pt-0 relative;
+    @apply p-4;
+    //@apply text-size--x-small text-color--mysterious;
     @screen md {
-      @apply p-8 pt-0;
+      @apply p-8;
     }
 
-    canvas {
-      max-width: 100%;
+  }
+
+  &__button {
+    @apply flex justify-center items-center whitespace-no-wrap;
+  }
+
+  &__button-mobile-icon {
+    @apply p-2;
+    @screen md {
+      @apply hidden;
     }
   }
 
+  &__button-desktop-icon {
+    @apply hidden;
+    //text-size--x-small
+    @screen md {
+      @apply inline;
+    }
+  }
+
+  &__group {
+
+  }
+
+  &__footer {
+    @apply text-center pt-4;
+
+  }
+
+  &__footer-button {
+    @apply uppercase;
+    //text-size--x-small;
+
+  }
+
+  &__footer-button-icon {
+    @apply mr-2;
+    //icon-chart-line;
+
+  }
+
+}
+
+.js-menu-toggle {
+  display: block;
 }

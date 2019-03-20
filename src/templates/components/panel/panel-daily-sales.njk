@@ -1,16 +1,18 @@
-    <div class="panel__header" data-pg-name="panel__header" data-pg-collapsed>
-        <div data-pg-name="panel__group" data-pg-collapsed>
-            <div class="uppercase text-size--medium mb-1">Daily Sales</div>
-            <p class="text-size--x-small">Use your mouse to see statistics from a particular day</p>
-        </div>
-        <div data-pg-name="panel__group" data-pg-collapsed>
-            <button class="js-menu-toggle flex justify-center items-center" data-pg-collapsed="">
-                <span class="px-4">Select Range</span>
-            </button>
-        </div>
+<div class="flex justify-between items-center p-4 md:p-8" data-pg-name="panel__header" data-pg-collapsed>
+    <div data-pg-name="panel__group">
+        <div class="uppercase text-size--medium mb-1 text-color--mysterious" data-pg-name="panel__title">Daily Sales</div>
+        <p class="text-size--x-small text-color--mysterious" data-pg-name="panel__content">Use your mouse to see statistics from a particular day</p>
     </div>
-    <div class="panel__content" style="height: 245px" data-pg-name="panel__content">
-        {#<img src="https://via.placeholder.com/716x245"/>#}
-        <canvas id="dailySales"></canvas>
+    <div data-pg-name="panel__group">
+        <button class="js-menu-toggle flex justify-center items-center whitespace-no-wrap" data-pg-name="panel__button">
+            <span class="md:hidden icon-clock p-2" data-pg-name="panel__button-mobile-icon"></span>
+            <span class="hidden md:inline text-size--x-small" data-pg-collapsed data-pg-name="panel__button-desktop-icon"><i class="icon-clock mr-2"></i>Select Range</span>
+        </button>
+    </div>
+</div>
+<div class="panel__content" style="height: 245px" data-pg-name="panel__content">
 
-    </div>
+    <canvas id="dailySales"></canvas>
+
+</div>
+
