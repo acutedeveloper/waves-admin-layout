@@ -3,8 +3,16 @@
 
   &__column {
     @apply w-full;
-    @screen xl {
-      @apply w-3/5;
+
+    &--left {
+      @screen xl {
+        @apply w-2/5;
+      }
+    }
+    &--right {
+      @screen xl {
+        @apply w-3/5;
+      }
     }
   }
 

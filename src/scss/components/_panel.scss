@@ -1,6 +1,10 @@
 .panel {
   @apply rounded-sm shadow bg-white;
 
+  & + & {
+    margin-top: 1rem;
+  }
+
   &__header {
     @apply flex justify-between items-center p-4 flex-wrap;
     @screen md {
@@ -35,7 +39,11 @@
   &__content {
     @apply p-4 pt-0;
     @screen md {
-      @apply p-8;
+      @apply p-8 pt-0;
+    }
+
+    canvas {
+      max-width: 100%;
     }
   }
 

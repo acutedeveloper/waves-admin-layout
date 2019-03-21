@@ -5,478 +5,416 @@
     <title>Waves Admin</title>
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
-
 <body>
-<div data-pg-name="wrapper" class="wrapper">
-    <aside data-pg-name="sidebar" class="sidebar">
-        <!-- Vertical Menu Link -->
-        <div data-pg-name="vertical-menu" class="vertical-menu">
-            <ul data-pg-name="vertical-menu__list" class="vertical-menu__list">
-                <div data-pg-name="vertical-menu" class="vertical-menu">
-                    <ul data-pg-name="vertical-menu__list" class="vertical-menu__list">
-                        <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
-                            <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span
-                                    data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon"></span>
-                                <span data-pg-name="vertical-menu__link-text"
-                                      class="vertical-menu__link-text">Home</span></a>
-                        </li>
-                        <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
-                            <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span
-                                    data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon"></span>
-                                <span data-pg-name="vertical-menu__link-text"
-                                      class="vertical-menu__link-text">Users</span></a>
-                        </li>
-                        <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
-                            <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span
-                                    data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon"></span>
-                                <span data-pg-name="vertical-menu__link-text"
-                                      class="vertical-menu__link-text">Packages</span></a>
-                        </li>
-                        <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
-                            <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span
-                                    data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon"></span>
-                                <span data-pg-name="vertical-menu__link-text"
-                                      class="vertical-menu__link-text">Analytics</span></a>
-                        </li>
-                        <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
-                            <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span
-                                    data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon"></span>
-                                <span data-pg-name="vertical-menu__link-text"
-                                      class="vertical-menu__link-text">Chat</span></a>
-                            <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span
-                                    data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon"></span>
-                                <span data-pg-name="vertical-menu__link-text"
-                                      class="vertical-menu__link-text">QR Code</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </ul>
-        </div>
-    </aside>
-    <!-- Main Content -->
-    <main data-pg-name="main-content" class="main-content">
-        <!-- 3 Up Grid Row -->
-        <header data-pg-name="header"
-                data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/layout/header.njk"
-                class="header">
-            <!-- Media Group -->
-            <div data-pg-name="dropdown" data-pgc="tw.dropdown-menu" class="dropdown">
-                <!-- Button -->
-                <button data-pg-name="dropdown__button" class="dropdown__button">
-                    <img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&amp;fm=jpg&amp;crop=faces&amp;cs=srgb&amp;w=50&amp;h=50&amp;fit=crop"
-                         alt="" data-pg-name="dropdown__avatar" class="dropdown__avatar">
-                    <div data-pg-name="dropdown__label-content" class="dropdown__label-content">
-                        <div>
-                            <p class="text-color--mysterious">Olive Houston</p>
-                            <p class="text-color--common-feldspar text-size--small">Marketing Specialist</p>
+    <div data-pg-name="wrapper" class="wrapper">
+        <aside data-pg-name="sidebar" class="sidebar">
+            <!-- Vertical Menu Link -->
+            <div data-pg-name="vertical-menu" class="vertical-menu" data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/components/panel/vertical-menu.njk">
+                <ul data-pg-name="vertical-menu__list" class="vertical-menu__list">
+                    <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
+                        <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon icon-home-outline"></span> <span data-pg-name="vertical-menu__link-text" class="vertical-menu__link-text">Home</span></a>
+                    </li>
+                    <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
+                        <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon icon-users-outline"></span> <span data-pg-name="vertical-menu__link-text" class="vertical-menu__link-text">Users</span></a>
+                    </li>
+                    <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
+                        <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon icon-box"></span> <span data-pg-name="vertical-menu__link-text" class="vertical-menu__link-text">Packages</span></a>
+                    </li>
+                    <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
+                        <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon icon-chart-line"></span> <span data-pg-name="vertical-menu__link-text" class="vertical-menu__link-text">Analytics</span></a>
+                    </li>
+                    <li data-pg-name="vertical-menu__list-item" class="vertical-menu__list-item">
+                        <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon icon-chart-line"></span> <span data-pg-name="vertical-menu__link-text" class="vertical-menu__link-text">Chat</span></a>
+                        <a data-pg-name="vertical-menu__link" class="vertical-menu__link"> <span data-pg-name="vertical-menu__link-icon" class="vertical-menu__link-icon icon-qrcode"></span> <span data-pg-name="vertical-menu__link-text" class="vertical-menu__link-text">QR Code</span></a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main data-pg-name="main-content" class="main-content">
+            <!-- 3 Up Grid Row -->
+            <header data-pg-name="header" data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/layout/header.njk" class="header">
+                <!-- Media Group -->
+                <div data-pg-name="dropdown" data-pgc="tw.dropdown-menu" class="dropdown">
+                    <!-- Button -->
+                    <button data-pg-name="dropdown__button" class="dropdown__button">
+                        <img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&amp;fm=jpg&amp;crop=faces&amp;cs=srgb&amp;w=50&amp;h=50&amp;fit=crop" alt="" data-pg-name="dropdown__avatar" class="dropdown__avatar">
+                        <div data-pg-name="dropdown__label-content" class="dropdown__label-content">
+                            <div>
+                                <p class="text-color--mysterious">Olive Houston</p>
+                                <p class="text-color--common-feldspar text-size--small">Marketing Specialist</p>
+                            </div>
+                            <i class="icon-down-dir absolute pin-r pin-t"></i>
                         </div>
-                        <i class="icon-down-dir absolute pin-r pin-t"></i>
+                    </button>
+                    <div data-pg-name="dropdown__menu" class="dropdown__menu">
+                        <a href="#" data-pg-name="dropdown__menu-item" class="dropdown__menu-item">Link Item</a>
+                        <a href="#" data-pg-name="dropdown__menu-item" class="dropdown__menu-item">Longer Link Item</a>
+                        <a href="#" data-pg-name="dropdown__menu-item" class="dropdown__menu-item">Another Link Item</a>
                     </div>
+                    <!-- Dropdown -->
+                </div>
+                <button data-pg-name="header__notification-button" class="header__notification-button">
+                    <i class="icon-bell"></i>
                 </button>
-                <div data-pg-name="dropdown__menu" class="dropdown__menu">
-                    <a href="#" data-pg-name="dropdown__menu-item" class="dropdown__menu-item">Link Item</a>
-                    <a href="#" data-pg-name="dropdown__menu-item" class="dropdown__menu-item">Longer Link Item</a>
-                    <a href="#" data-pg-name="dropdown__menu-item" class="dropdown__menu-item">Another Link Item</a>
-                </div>
-                <!-- Dropdown -->
-            </div>
-            <button data-pg-name="header__notification-button" class="header__notification-button">
-                <i class="icon-bell"></i>
-            </button>
-            <div data-pg-name="header__group" class="header__group">
-                <!--Dropdown Menu -->
-                <div data-pg-name="header__media" class="header__media">
-                    <img src="images/wave-admin-logo.svg">
-                    <div data-pg-name="header__media-content" class="header__media-content">
-                        <div class="text-size--large text-color--mysterious">WAVES</div>
-                        <div class="text-size--x-small text-color--common-feldspar">
-                            ADMINISTRATION PANEL
-                        </div>
-                    </div>
-                </div>
-                <button data-pg-name="header__sidebar-toggle" class="header__sidebar-toggle">
-                    <i class="icon-menu"></i>
-                </button>
-            </div>
-        </header>
-        <div data-pg-name="grid" class="grid">
-            <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
-                <!-- Panel Block: -->
-                <div data-pg-name="panel" class="panel">
-                    <div data-pg-name="panel__header" class="panel__header">
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <div class="text-color--common-feldspar">SALE</div>
-                            <div class="text-size--x-large text-color--mysterious">1047$</div>
-                        </div>
-                        <div data-pg-name="panel__group" class="panel__group">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
-                <!-- Panel Block: -->
-                <div data-pg-name="panel" class="panel">
-                    <div data-pg-name="panel__header" class="panel__header">
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <div class="text-color--common-feldspar">SALE</div>
-                            <div class="text-size--x-large text-color--mysterious">1047$</div>
-                        </div>
-                        <div data-pg-name="panel__group" class="panel__group">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
-                <!-- Panel Block: -->
-                <div data-pg-name="panel" class="panel">
-                    <div data-pg-name="panel__header" class="panel__header">
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <div class="text-color--common-feldspar">SALE</div>
-                            <div class="text-size--x-large text-color--mysterious">1047$</div>
-                        </div>
-                        <div data-pg-name="panel__group" class="panel__group">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 2 Up Grid Row -->
-        <div data-pg-name="grid" class="grid">
-            <div data-pg-name="grid__item--2-3" class="grid__item--2-3">
-                <!-- Panel Block: -->
-                <div data-pg-name="panel" class="panel">
-                    <div data-pg-name="panel__header" class="panel__header">
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <div data-pg-name="panel__title" class="panel__title">Daily Sales</div>
-                            <p class="text-size--x-small text-color--mysterious">Use your mouse to see statistics from a
-                                particular day</p>
-                        </div>
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <button data-pg-name="panel__button" class="panel__button">
-                                <span data-pg-name="panel__button-mobile-icon" class="panel__button-mobile-icon"></span>
-                                <span data-pg-name="panel__button-desktop-icon" class="panel__button-desktop-icon"><i
-                                        class="icon-clock mr-2"></i>Select Range</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div data-pg-name="panel__content" class="panel__content">
-                        <img src="https://via.placeholder.com/716x245">
-                    </div>
-                </div>
-                <!-- Panel Block: -->
-                <div data-pg-name="panel"
-                     data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/components/panel/panel-recently-sold.njk"
-                     data-pgc-save-partial-content="" class="panel">
-                    <div data-pg-name="panel__header" class="panel__header">
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <div data-pg-name="panel__title" class="panel__title">Daily Sales</div>
-                            <p class="text-size--x-small text-color--mysterious">Use your mouse to see statistics from a
-                                particular day</p>
-                        </div>
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <button class="js-menu-toggle flex justify-center items-center mr-2">
-                                <span class="md:hidden p-2 icon-th-list"></span>
-                                <span class="hidden md:inline mr-2 text-size--x-small whitespace-no-wrap"><i
-                                        class="icon-th-list mr-2"></i>List View</span>
-                            </button>
-                            <button class="js-menu-toggle flex justify-center items-center">
-                                <span class="md:hidden p-2 icon-th-large"></span>
-                                <span class="hidden md:inline text-size--x-small whitespace-no-wrap"><i
-                                        class="icon-th-large mr-2"></i>Grid View</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div data-pg-name="panel__content" class="panel__content">
-                        <table data-pg-name="panel-table" class="panel-table">
-                            <tbody>
-                            <tr data-pg-name="panel-table__row" class="panel-table__row">
-                                <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
-                                    <img src="images/outfit-dress.png" data-pg-name="panel-table__image"
-                                         class="panel-table__image">
-                                </td>
-                                <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>Beige Dress</p>
-                                        <p class="text-size--x-small">Quantity: 21</p>
-                                    </div>
-                                    <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
-                                        <p class="text-size--x-small mr-2">
-                                            <i class="icon-heart"></i> 28</p>
-                                        <p class="text-size--x-small">
-                                            <i class="icon-chat"></i> 201</p>
-                                    </div>
-                                </td>
-                                <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>$84.00</p>
-                                        <p class="text-size--x-small">(+17.24 VAT)</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr data-pg-name="panel-table__row" class="panel-table__row">
-                                <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
-                                    <img src="images/outfit-dress.png" data-pg-name="panel-table__image"
-                                         class="panel-table__image">
-                                </td>
-                                <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>Beige Dress</p>
-                                        <p class="text-size--x-small">Quantity: 21</p>
-                                    </div>
-                                    <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
-                                        <p class="text-size--x-small mr-2">
-                                            <i class="icon-heart"></i> 28</p>
-                                        <p class="text-size--x-small">
-                                            <i class="icon-chat"></i> 201</p>
-                                    </div>
-                                </td>
-                                <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>$84.00</p>
-                                        <p class="text-size--x-small">(+17.24 VAT)</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr data-pg-name="panel-table__row" class="panel-table__row">
-                                <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
-                                    <img src="images/outfit-dress.png" data-pg-name="panel-table__image"
-                                         class="panel-table__image">
-                                </td>
-                                <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>Beige Dress</p>
-                                        <p class="text-size--x-small">Quantity: 21</p>
-                                    </div>
-                                    <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
-                                        <p class="text-size--x-small mr-2">
-                                            <i class="icon-heart"></i> 28</p>
-                                        <p class="text-size--x-small">
-                                            <i class="icon-chat"></i> 201</p>
-                                    </div>
-                                </td>
-                                <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>$84.00</p>
-                                        <p class="text-size--x-small">(+17.24 VAT)</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr data-pg-name="panel-table__row" class="panel-table__row">
-                                <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
-                                    <img src="images/outfit-dress.png" data-pg-name="panel-table__image"
-                                         class="panel-table__image">
-                                </td>
-                                <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>Beige Dress</p>
-                                        <p class="text-size--x-small">Quantity: 21</p>
-                                    </div>
-                                    <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
-                                        <p class="text-size--x-small mr-2">
-                                            <i class="icon-heart"></i> 28</p>
-                                        <p class="text-size--x-small">
-                                            <i class="icon-chat"></i> 201</p>
-                                    </div>
-                                </td>
-                                <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
-                                    <div data-pg-name="panel-table__group" class="panel-table__group">
-                                        <p>$84.00</p>
-                                        <p class="text-size--x-small">(+17.24 VAT)</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div data-pg-name="panel__footer" class="panel__footer">
-                            <a data-pgc="tw.icon-text" data-pg-name="panel__footer-button" class="panel__footer-button">
-                                <i data-pg-name="panel__footer-button-icon" class="panel__footer-button-icon"></i>Show
-                                me all full live feed</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
-                <!-- Panel Block: -->
-                <div data-pg-name="panel" class="panel">
-                    <div data-pg-name="panel__header" class="panel__header">
-                        <div data-pg-name="panel__group" class="panel__group">
-                            <div class="uppercase text-size--medium mb-1 text-color--mysterious">Main Categories</div>
-                            <p class="text-size--x-small text-color--mysterious">Sales for main categories in shop</p>
-                        </div>
-                        <span data-pg-name="panel__button-desktop-icon" class="panel__button-desktop-icon"><i
-                                class="icon-clock icon-dot-3"></i></span>
-                    </div>
-                    <div data-pg-name="panel__content" class="panel__content">
-                        <img src="https://via.placeholder.com/316x138">
-                    </div>
-                </div>
-                <!-- Panel Block: -->
-                <div data-pg-name="panel" class="panel">
-                    <div class="flex justify-between p-4 md:p-8">
-                        <div>
-                            <div class="uppercase text-size--medium mb-1 text-color--mysterious">Regions REport</div>
-                            <div class="text-size--medium text-color--mysterious">
-                                <p class="text-size--x-small">Reports from particualar regions of world</p>
-                            </div>
-                        </div>
-                        <span data-pg-name="panel__button-desktop-icon" class="panel__button-desktop-icon"><i
-                                class="icon-clock icon-dot-3"></i></span>
-                    </div>
-                    <div class="p-4 md:p-8 pt-0">
-                        <img src="https://via.placeholder.com/316x480">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp;
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Footer -->
-        <footer data-pg-name="footer" class="footer">
-            <div data-pg-name="footer__column" class="footer__column">
-                <!-- 3 Up Grid Row -->
-                <div data-pg-name="grid" class="grid">
-                    <div data-pg-name="grid__item--sm-1-3" class="grid__item--sm-1-3">
-                        <div data-pg-name="footer__list-wrap" class="footer__list-wrap">
-                            <div data-pg-name="footer__heading" class="footer__heading">Quick Links</div>
-                            <ul data-pg-name="footer__list" class="footer__list">
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div data-pg-name="grid__item--sm-1-3" class="grid__item--sm-1-3">
-                        <div data-pg-name="footer__list-wrap" class="footer__list-wrap">
-                            <div data-pg-name="footer__heading" class="footer__heading">Quick Links</div>
-                            <ul data-pg-name="footer__list" class="footer__list">
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div data-pg-name="grid__item--sm-1-3" class="grid__item--sm-1-3">
-                        <div data-pg-name="footer__list-wrap" class="footer__list-wrap">
-                            <div data-pg-name="footer__heading" class="footer__heading">Quick Links</div>
-                            <ul data-pg-name="footer__list" class="footer__list">
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                                <li data-pg-name="footer__list-item" class="footer__list-item">
-                                    <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
-                                        item</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div data-pg-name="footer__column" class="footer__column">
-                <!-- 2 Up Grid Row -->
-                <div data-pg-name="grid" class="grid">
-                    <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
-                        <div data-pg-name="footer__content"
-                             data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/components/footer/footer-social.njk"
-                             class="footer__content">
-                            <div data-pg-name="footer__heading" class="footer__heading">Social</div>
-                            <div data-pg-name="footer__social-media-wrap" class="footer__social-media-wrap">
-                                <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8"
-                                   data-pgc="tw.icon-rounded">
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8"
-                                   data-pgc="tw.icon-rounded">
-                                    <i class="icon-twitter"></i>
-                                </a>
-                                <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8"
-                                   data-pgc="tw.icon-rounded">
-                                    <i class="icon-linkedin"></i>
-                                </a>
-                                <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8"
-                                   data-pgc="tw.icon-rounded">
-                                    <i class="icon-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-pg-name="grid__item--2-3" class="grid__item--2-3">
-                        <div data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/components/footer/footer-contact.njk"
-                             data-pg-name="footer__content" class="footer__content">
-                            <div data-pg-name="footer__back-to-top" class="footer__back-to-top">
-                                <i class="icon-up"></i>
-                            </div>
-                            <p class="text-size--small text-right">v1.4, November 14, 2016</p>
-                            <p class="text-size--small text-right">© 2016 Dashboard, Inc. All Rights Reserved</p>
-                            <br>
-                            <br>
-                            <p class="text-size--small text-right">All Systems Operational Check out our status page for
-                                more details</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </main>
+                <div data-pg-name="header__group" class="header__group">
+                    <!--Dropdown Menu -->
+                    <div data-pg-name="header__media" class="header__media">
+                        <img src="images/wave-admin-logo.svg">
+                        <div data-pg-name="header__media-content" class="header__media-content">
+                            <div class="text-size--large text-color--mysterious">WAVES</div>
+                            <div class="text-size--x-small text-color--common-feldspar">
+                                ADMINISTRATION PANEL
 </div>
-<script type="application/javascript" src="js/all.js"></script>
-
+                        </div>
+                    </div>
+                    <button data-pg-name="header__sidebar-toggle" class="header__sidebar-toggle">
+                        <i class="icon-menu"></i>
+                    </button>
+                </div>
+            </header>
+            <div data-pg-name="grid" class="grid">
+                <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
+                    <!-- Panel Block: -->
+                    <div data-pg-name="panel" class="panel">
+                        <div data-pg-name="panel__header" class="panel__header">
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <div class="text-color--common-feldspar">SALE</div>
+                                <div class="text-size--x-large text-color--mysterious">1047$</div>
+                            </div>
+                            <div data-pg-name="panel__group" class="panel__group">
+</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
+                    <!-- Panel Block: -->
+                    <div data-pg-name="panel" class="panel">
+                        <div data-pg-name="panel__header" class="panel__header">
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <div class="text-color--common-feldspar">SALE</div>
+                                <div class="text-size--x-large text-color--mysterious">1047$</div>
+                            </div>
+                            <div data-pg-name="panel__group" class="panel__group">
+</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
+                    <!-- Panel Block: -->
+                    <div data-pg-name="panel" class="panel">
+                        <div data-pg-name="panel__header" class="panel__header">
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <div class="text-color--common-feldspar">SALE</div>
+                                <div class="text-size--x-large text-color--mysterious">1047$</div>
+                            </div>
+                            <div data-pg-name="panel__group" class="panel__group">
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 2 Up Grid Row -->
+            <div data-pg-name="grid" class="grid">
+                <div data-pg-name="grid__item--2-3" class="grid__item--2-3">
+                    <!-- Panel Block: -->
+                    <div data-pg-name="panel" class="panel">
+                        <div data-pg-name="panel__header" class="panel__header">
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <div data-pg-name="panel__title" class="panel__title">Daily Sales</div>
+                                <p class="text-size--x-small text-color--mysterious">Use your mouse to see statistics from a
+                                particular day</p>
+                            </div>
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <button data-pg-name="panel__button" class="panel__button">
+                                    <span data-pg-name="panel__button-mobile-icon" class="panel__button-mobile-icon"></span>
+                                    <span data-pg-name="panel__button-desktop-icon" class="panel__button-desktop-icon"><i class="icon-clock mr-2"></i>Select Range</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div data-pg-name="panel__content" class="panel__content">
+                            <img src="https://via.placeholder.com/716x245">
+                        </div>
+                    </div>
+                    <!-- Panel Block: -->
+                    <div data-pg-name="panel" data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/components/panel/panel-recently-sold.njk" data-pgc-save-partial-content="" class="panel">
+                        <div data-pg-name="panel__header" class="panel__header">
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <div data-pg-name="panel__title" class="panel__title">Daily Sales</div>
+                                <p class="text-size--x-small text-color--mysterious">Use your mouse to see statistics from a
+                                particular day</p>
+                            </div>
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <button class="js-menu-toggle flex justify-center items-center mr-2">
+                                    <span class="md:hidden p-2 icon-th-list"></span>
+                                    <span class="hidden md:inline mr-2 text-size--x-small whitespace-no-wrap"><i class="icon-th-list mr-2"></i>List View</span>
+                                </button>
+                                <button class="js-menu-toggle flex justify-center items-center">
+                                    <span class="md:hidden p-2 icon-th-large"></span>
+                                    <span class="hidden md:inline text-size--x-small whitespace-no-wrap"><i class="icon-th-large mr-2"></i>Grid View</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div data-pg-name="panel__content" class="panel__content">
+                            <table data-pg-name="panel-table" class="panel-table">
+                                <tbody>
+                                    <tr data-pg-name="panel-table__row" class="panel-table__row">
+                                        <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
+                                            <img src="images/outfit-dress.png" data-pg-name="panel-table__image" class="panel-table__image">
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>Beige Dress</p>
+                                                <p class="text-size--x-small">Quantity: 21</p>
+                                            </div>
+                                            <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
+                                                <p class="text-size--x-small mr-2"> <i class="icon-heart"></i> 28</p>
+                                                <p class="text-size--x-small"> <i class="icon-chat"></i> 201</p>
+                                            </div>
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>$84.00</p>
+                                                <p class="text-size--x-small">(+17.24 VAT)</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-pg-name="panel-table__row" class="panel-table__row">
+                                        <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
+                                            <img src="images/outfit-dress.png" data-pg-name="panel-table__image" class="panel-table__image">
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>Beige Dress</p>
+                                                <p class="text-size--x-small">Quantity: 21</p>
+                                            </div>
+                                            <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
+                                                <p class="text-size--x-small mr-2"> <i class="icon-heart"></i> 28</p>
+                                                <p class="text-size--x-small"> <i class="icon-chat"></i> 201</p>
+                                            </div>
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>$84.00</p>
+                                                <p class="text-size--x-small">(+17.24 VAT)</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-pg-name="panel-table__row" class="panel-table__row">
+                                        <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
+                                            <img src="images/outfit-dress.png" data-pg-name="panel-table__image" class="panel-table__image">
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>Beige Dress</p>
+                                                <p class="text-size--x-small">Quantity: 21</p>
+                                            </div>
+                                            <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
+                                                <p class="text-size--x-small mr-2"> <i class="icon-heart"></i> 28</p>
+                                                <p class="text-size--x-small"> <i class="icon-chat"></i> 201</p>
+                                            </div>
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>$84.00</p>
+                                                <p class="text-size--x-small">(+17.24 VAT)</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-pg-name="panel-table__row" class="panel-table__row">
+                                        <td data-pg-name="panel-table__cell-first" class="panel-table__cell-first">
+                                            <img src="images/outfit-dress.png" data-pg-name="panel-table__image" class="panel-table__image">
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-second" class="panel-table__cell-second">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>Beige Dress</p>
+                                                <p class="text-size--x-small">Quantity: 21</p>
+                                            </div>
+                                            <div data-pg-name="panel-table__group--flex" class="panel-table__group--flex">
+                                                <p class="text-size--x-small mr-2"> <i class="icon-heart"></i> 28</p>
+                                                <p class="text-size--x-small"> <i class="icon-chat"></i> 201</p>
+                                            </div>
+                                        </td>
+                                        <td data-pg-name="panel-table__cell-last" class="panel-table__cell-last">
+                                            <div data-pg-name="panel-table__group" class="panel-table__group">
+                                                <p>$84.00</p>
+                                                <p class="text-size--x-small">(+17.24 VAT)</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div data-pg-name="panel__footer" class="panel__footer">
+                                <a data-pgc="tw.icon-text" data-pg-name="panel__footer-button" class="panel__footer-button"> <i data-pg-name="panel__footer-button-icon" class="panel__footer-button-icon"></i>Show
+                                me all full live feed</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
+                    <!-- Panel Block: -->
+                    <div data-pg-name="panel" class="panel">
+                        <div data-pg-name="panel__header" class="panel__header">
+                            <div data-pg-name="panel__group" class="panel__group">
+                                <div class="uppercase text-size--medium mb-1 text-color--mysterious">Main Categories</div>
+                                <p class="text-size--x-small text-color--mysterious">Sales for main categories in shop</p>
+                            </div>
+                            <span data-pg-name="panel__button-desktop-icon" class="panel__button-desktop-icon"><i class="icon-clock icon-dot-3"></i></span>
+                        </div>
+                        <div data-pg-name="panel__content" class="panel__content">
+                            <img src="https://via.placeholder.com/316x138">
+                        </div>
+                    </div>
+                    <!-- Panel Block: -->
+                    <div data-pg-name="panel" class="panel">
+                        <div class="flex justify-between p-4 md:p-8">
+                            <div>
+                                <div class="uppercase text-size--medium mb-1 text-color--mysterious">Regions REport</div>
+                                <div class="text-size--medium text-color--mysterious">
+                                    <p class="text-size--x-small">Reports from particualar regions of world</p>
+                                </div>
+                            </div>
+                            <span data-pg-name="panel__button-desktop-icon" class="panel__button-desktop-icon"><i class="icon-clock icon-dot-3"></i></span>
+                        </div>
+                        <div class="p-4 md:p-8 pt-0">
+                            <img src="https://via.placeholder.com/316x480">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp; &nbsp;
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer data-pg-name="footer" class="footer">
+                <div data-pg-name="footer__column" class="footer__column footer__column--left">
+                    <!-- 3 Up Grid Row -->
+                    <div data-pg-name="grid" class="grid">
+                        <div data-pg-name="grid__item--sm-1-3" class="grid__item--sm-1-3">
+                            <div data-pg-name="footer__list-wrap" class="footer__list-wrap">
+                                <div data-pg-name="footer__heading" class="footer__heading">Quick Links</div>
+                                <ul data-pg-name="footer__list" class="footer__list">
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div data-pg-name="grid__item--sm-1-3" class="grid__item--sm-1-3">
+                            <div data-pg-name="footer__list-wrap" class="footer__list-wrap">
+                                <div data-pg-name="footer__heading" class="footer__heading">Quick Links</div>
+                                <ul data-pg-name="footer__list" class="footer__list">
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div data-pg-name="grid__item--sm-1-3" class="grid__item--sm-1-3">
+                            <div data-pg-name="footer__list-wrap" class="footer__list-wrap">
+                                <div data-pg-name="footer__heading" class="footer__heading">Quick Links</div>
+                                <ul data-pg-name="footer__list" class="footer__list">
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                    <li data-pg-name="footer__list-item" class="footer__list-item">
+                                        <a href="#" name="anchor" data-pg-name="footer__link" class="footer__link">List
+                                        item</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-pg-name="footer__column" class="footer__column footer__column--right">
+                    <!-- 2 Up Grid Row -->
+                    <div data-pg-name="grid" class="grid">
+                        <div data-pg-name="grid__item--1-3" class="grid__item--1-3">
+                            <div data-pg-name="footer__content" data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/components/footer/footer-social.njk" class="footer__content">
+                                <div data-pg-name="footer__heading" class="footer__heading">Social</div>
+                                <div data-pg-name="footer__social-media-wrap" class="footer__social-media-wrap">
+                                    <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8" data-pgc="tw.icon-rounded"> <i class="icon-facebook"></i> </a>
+                                    <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8" data-pgc="tw.icon-rounded"> <i class="icon-twitter"></i> </a>
+                                    <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8" data-pgc="tw.icon-rounded"> <i class="icon-linkedin"></i> </a>
+                                    <a class="flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8" data-pgc="tw.icon-rounded"> <i class="icon-instagram"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-pg-name="grid__item--2-3" class="grid__item--2-3">
+                            <div data-pgc-save-partial="/Users/nigelmpeters/Documents/Career Skills/Personal Projects/Waves Admin Panel/code/src/templates/components/footer/footer-contact.njk" data-pg-name="footer__content" class="footer__content">
+                                <div data-pg-name="footer__back-to-top" class="footer__back-to-top">
+                                    <i class="icon-up"></i>
+                                </div>
+                                <p class="text-size--small text-right">v1.4, November 14, 2016</p>
+                                <p class="text-size--small text-right">© 2016 Dashboard, Inc. All Rights Reserved</p>
+                                <br>
+                                <br>
+                                <p class="text-size--small text-right">All Systems Operational Check out our status page for
+                                more details</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script type="application/javascript" src="js/all.js"></script>
 </body>

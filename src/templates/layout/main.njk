@@ -1,11 +1,11 @@
 <!-- Main Content -->
-<main class="flex-auto grey-gradient p-5 md:p-10">
+<main class="main-content grey-gradient">
     {% include "layout/header.njk" %}
 
     <!-- 3 Up Grid Row -->
     {% set grid1 = [
         {
-            "columnWidth": "w-full md:w-1/3",
+            "columnWidth": "grid__item--1-3",
             "templateData": {
                 "include": "components/panel/panel-mini-chart.njk",
                 "title": "New Customers",
@@ -13,7 +13,7 @@
             }
         },
         {
-            "columnWidth": "w-full md:w-1/3",
+            "columnWidth": "grid__item--1-3",
             "templateData": {
                 "include": "components/panel/panel-mini-chart.njk",
                 "title": "Active Users",
@@ -21,7 +21,7 @@
             }
         },
         {
-            "columnWidth": "w-full md:w-1/3",
+            "columnWidth": "grid__item--1-3",
             "templateData": {
                 "include": "components/panel/panel-mini-chart.njk",
                 "title": "Sales",
@@ -36,7 +36,7 @@
     <!-- 2 Up Grid Row -->
     {% set grid2 = [
         {
-            "columnWidth": "w-full md:w-2/3",
+            "columnWidth": "grid__item--2-3",
             "templateData": {
                 "include": "components/panel/panel-daily-sales.njk"
             },
@@ -45,7 +45,7 @@
             }
         },
         {
-            "columnWidth": "w-full md:w-1/3",
+            "columnWidth": "grid__item--1-3",
             "templateData": {
                 "include": "components/panel/panel-main-categories.njk"
             },
@@ -58,6 +58,7 @@
         {{ panel.getPanel(gridItem.templateData) }}
         {{ panel.getPanel(gridItem.templateData2) }}
     {%- endcall %}
+
 
     {% include "layout/footer.njk" %}
 

@@ -1,9 +1,9 @@
 {# Grid #}
 {% macro buildGrid(grid) -%}
-  <div class="flex flex-wrap -m-2" data-pg-name="grid">
+  <div class="grid">
 
       {% for gridItem in grid -%}
-      <div class="p-2 {{ gridItem.columnWidth }}" data-pg-name="grid__item">
+      <div class="{{ gridItem.columnWidth }}">
         {{ caller(gridItem) }}
       </div>
       {%- endfor %}
