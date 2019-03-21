@@ -9,61 +9,54 @@
   }
 
   &__title {
-    @apply uppercase;
-    //text-size--medium mb-1 text-color--mysterious;
-  }
-
-  &__content {
-    @apply p-4;
-    //@apply text-size--x-small text-color--mysterious;
-    @screen md {
-      @apply p-8;
-    }
-
+    @apply uppercase text-size--medium mb-1 text-color--mysterious;
   }
 
   &__button {
     @apply flex justify-center items-center whitespace-no-wrap;
+    //js-menu-toggle
   }
 
   &__button-mobile-icon {
     @apply p-2;
+    //icon-clock
     @screen md {
       @apply hidden;
     }
   }
 
   &__button-desktop-icon {
-    @apply hidden;
-    //text-size--x-small
+    @apply hidden text-size--x-small;
     @screen md {
       @apply inline;
     }
   }
 
+  &__content {
+    @apply p-4 pt-0;
+    @screen md {
+      @apply p-8;
+    }
+  }
+
   &__group {
 
+    &--flex {
+      @apply flex;
+    }
   }
 
   &__footer {
     @apply text-center pt-4;
-
   }
 
   &__footer-button {
-    @apply uppercase;
-    //text-size--x-small;
-
+    @apply uppercase text-size--x-small;
   }
 
   &__footer-button-icon {
     @apply mr-2;
     //icon-chart-line;
-
   }
 
-}
-
-.js-menu-toggle {
-  display: block;
 }

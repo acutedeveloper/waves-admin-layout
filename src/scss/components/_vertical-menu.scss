@@ -5,22 +5,18 @@
   }
   &__list {
     @apply list-reset;
-
   }
 
   &__link {
     @apply block border-solid border-r-4 border-white text-right flex-col flex p-8 items-center;
-
   }
 
   &__link-icon {
-    @apply text-size--large;
-
+    //@apply icon-home-outline text-size--large;
   }
 
   &__link-text {
     @apply whitespace-no-wrap;
-
   }
 
 }

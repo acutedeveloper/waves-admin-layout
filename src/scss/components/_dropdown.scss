@@ -3,12 +3,10 @@
 
   &__button {
     @apply rounded flex items-center text-left;
-
   }
 
   &__avatar {
     @apply block rounded;
-
   }
 
   &__label-content {
@@ -16,6 +14,14 @@
     @screen md {
       @apply block;
     }
+  }
+
+  &__menu {
+    @apply mt-2 absolute flex flex-col border rounded shadow bg-white py-1 pin-r;
+  }
+
+  &__menu-item {
+    @apply px-4 py-2 no-underline text-grey-darkest whitespace-no-wrap;
   }
 
 }

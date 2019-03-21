@@ -1,25 +1,23 @@
-.header {
+.header{
   @apply justify-between mb-10 items-center;
+  //clearfix;
 
   &:after {
-    content: "";
-    display: table;
     clear: both;
+    content: "";
+    display: block;
   }
 
   &__notification-button {
     @apply float-right p-4;
-
   }
 
   &__group {
     @apply flex float-left;
-
   }
 
   &__media {
     @apply flex;
-
   }
 
   &__media-content {
