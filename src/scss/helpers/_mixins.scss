@@ -24,14 +24,15 @@ Screen width options to match the breakpoint function values
 }
 
 /*
-Responsive Typography
+Get font size with line height
 */
-@mixin get-font-size($font-map, $breakpoint:"sm"){
-  @if($breakpoint == "sm") {
-    font-size: map-get($font-map, $breakpoint);
-  } @else {
-    @include media-breakpoint($breakpoint) {
-      font-size: map-get($font-map, $breakpoint);
-    }
-  }
+
+@mixin get_font_size($pixel-font-size, $pixel-line-height: 1) {
+  $rem-font-size: $pixel-font-size / $base-font-size;
+  $rem-line-height: $pixel-line-height / $base-font-size;
+
+  font-size: #{$pixel-font-size + 'px'};
+  font-size: #{$rem-font-size + 'rem'};
+  line-height: #{$pixel-font-size + 'px'};
+  line-height: #{$rem-line-height + 'rem'};
 }
