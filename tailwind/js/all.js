@@ -43,7 +43,7 @@ function () {
   }, {
     key: "toggleMenu",
     value: function toggleMenu(e) {
-      this.menu.classList.toggle("block");
+      this.menu.classList.toggle("flex");
     }
   }]);
 

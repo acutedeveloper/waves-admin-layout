@@ -34,7 +34,7 @@ class Menu{
     }
 
     toggleMenu(e) {
-        this.menu.classList.toggle("block");
+        this.menu.classList.toggle("flex");
     }
 }
 
