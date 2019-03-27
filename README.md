@@ -1,7 +1,31 @@
 # Waves Admin Panel
 
+## Responsive Approach
 
+**Header**
 
+- Logo to reduce to a smaller icon only mark.
+- Button to appear to reveal hidden sidebar.
+- Header dropdown menu button to hide text leaving text only.
+
+**Sidebar**
+
+- Sidebar to disappear below large breakpoints.
+
+**Footer**
+
+Progressive collapsing approach. Group the columns into two halfs to allow them to stack at a medium breakpoint,
+then stack again on smaller breakpoints.
+
+## Interactive Components
+
+- Header Dropdown menu
+- Menu Header Notification icon
+- Page Charts
+- Sidebar when hidden, to be revealed by icon that will appear in the header. To use a slideover reveal effect.
+- Footer list of links, on mobile reveal with accordion function
+
+## Progress Log
 Added nunjucks to the project
 
 ----
