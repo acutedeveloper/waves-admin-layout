@@ -1,7 +1,4 @@
 .vertical-menu {
-
-  $self: &;
-
   @apply h-full flex-col justify-between hidden mt-10;
   @screen md {
     @apply flex;
@@ -11,29 +8,15 @@
   }
 
   &__link {
-    @apply block text-right flex-col flex p-8 items-center;
-    border-right: solid 4px transparent;
-    color: $common-feldspar;
-
-    &:hover {
-      border-right-color: $jade-dust;
-      color: $mysterious;
-
-      #{$self}__link-text {
-        visibility: visible;
-      }
-
-    }
+    @apply block border-solid border-r-4 border-white text-right flex-col flex p-8 items-center;
   }
 
   &__link-icon {
-    //@apply icon-home-outline text-size--large;
-    font-size: $text-size__large;
-    margin-bottom: 0.25rem;
+    //icon-home-outline;
+    //text-size--large;
   }
 
   &__link-text {
-    visibility: hidden;
     @apply whitespace-no-wrap;
   }
 

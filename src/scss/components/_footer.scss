@@ -1,20 +1,13 @@
 .footer {
   @apply flex flex-wrap mt-10;
 
-  &__column {
+  &__column--left {
     @apply w-full;
-
-    &--left {
-      @screen xl {
-        @apply w-2/5;
-      }
-    }
-    &--right {
-      @screen xl {
-        @apply w-3/5;
-      }
+    @screen xl {
+      @apply w-3/5;
     }
   }
+
 
   &__heading {
     @apply mb-2 uppercase text-color--mysterious;
@@ -35,8 +28,19 @@
     @apply no-underline text-grey-dark;
   }
 
+  &__column--right {
+    @apply w-full;
+    @screen xl {
+      @apply w-2/5;
+    }
+  }
+
   &__social-media-wrap {
     @apply flex justify-between;
+  }
+
+  &__social-media-link {
+    @apply flex justify-center items-center border-2 rounded rounded-full border-grey-darker border-solid w-8 h-8;
   }
 
   &__content {

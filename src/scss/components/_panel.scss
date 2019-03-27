@@ -1,10 +1,6 @@
 .panel {
   @apply rounded-sm shadow bg-white;
 
-  & + & {
-    margin-top: 1rem;
-  }
-
   &__header {
     @apply flex justify-between items-center p-4 flex-wrap;
     @screen md {
@@ -13,11 +9,13 @@
   }
 
   &__title {
-    @apply uppercase text-size--medium mb-1 text-color--mysterious;
+    @apply uppercase mb-1;
+    //text-color--mysterious;
+    //text-size--medium
   }
 
   &__button {
-    @apply flex justify-center items-center whitespace-no-wrap;
+    @apply justify-center items-center whitespace-no-wrap relative text-left;
     //js-menu-toggle
   }
 
@@ -30,7 +28,8 @@
   }
 
   &__button-desktop-icon {
-    @apply hidden text-size--x-small;
+    @apply hidden;
+    //text-size--x-small
     @screen md {
       @apply inline;
     }
@@ -39,19 +38,12 @@
   &__content {
     @apply p-4 pt-0;
     @screen md {
-      @apply p-8 pt-0;
-    }
-
-    canvas {
-      max-width: 100%;
+      @apply p-8;
     }
   }
 
-  &__group {
-
-    &--flex {
-      @apply flex;
-    }
+  &__group--flex {
+    @apply flex;
   }
 
   &__footer {
@@ -59,7 +51,8 @@
   }
 
   &__footer-button {
-    @apply uppercase text-size--x-small;
+    @apply uppercase;
+    //text-size--x-small;
   }
 
   &__footer-button-icon {

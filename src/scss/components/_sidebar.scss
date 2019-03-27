@@ -1,5 +1,6 @@
 .sidebar {
-  @apply grey-light-gradient w-32 hidden shiny-grey;
+  @apply grey-light-gradient w-32 hidden;
+  //shiny-grey;
   @screen lg {
     @apply block;
   }

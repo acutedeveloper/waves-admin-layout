@@ -1,5 +1,5 @@
 .dropdown {
-  @apply float-right static relative;
+  @apply float-right relative;
 
   &__button {
     @apply rounded flex items-center text-left;
@@ -14,6 +14,11 @@
     @screen md {
       @apply block;
     }
+  }
+
+  &__icon-down {
+    @apply absolute pin-r pin-t;
+    //icon-down-dir
   }
 
   &__menu {

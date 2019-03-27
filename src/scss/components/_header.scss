@@ -1,11 +1,10 @@
-.header{
+.header {
   @apply justify-between mb-10 items-center;
-  //clearfix;
 
   &:after {
-    clear: both;
     content: "";
-    display: block;
+    clear: both;
+    display: table;
   }
 
   &__notification-button {
