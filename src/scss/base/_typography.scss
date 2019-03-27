@@ -59,31 +59,41 @@ $font-family__light: #{"Montserrat--light, helvetica neue"};
 $font-family__regular: #{"Montserrat--regular, helvetica neue"};
 $font-family__medium: #{"Montserrat-semibold, helvetica neue"};
 
-body {
-  font-family: $font-family__regular;
-}
-
 /*------------------------------------*
 	SASS FONT SIZE VARIABLES
 *------------------------------------*/
 
-$font-base-size: 16;
+/**
+ * Base Font Size
+ *
+ */
 
-$text-size__x-large: px-to-rem(38, $font-base-size);
-$text-size__large: px-to-rem(22, $font-base-size);
-$text-size__medium: px-to-rem(16, $font-base-size);
-$text-size__small: px-to-rem(14, $font-base-size);
-$text-size__x-small: px-to-rem(12, $font-base-size);
+$base-font-size: 16;
+
+/**
+ * Base Line Height
+ *
+ * We are structuring our document on a 8pt grid
+ */
+
+$base-line-height: 16;
+$base-line-height-rem: $base-line-height / $base-font-size;
+
+$text-size__x-large: px-to-rem(38, $base-font-size);
+$text-size__large: px-to-rem(22, $base-font-size);
+$text-size__medium: px-to-rem(16, $base-font-size);
+$text-size__small: px-to-rem(14, $base-font-size);
+$text-size__x-small: px-to-rem(12, $base-font-size);
 
 /*------------------------------------*
 	SASS LINE HEIGHT VARIABLES
 *------------------------------------*/
 
 $line-height__x-large: 1.0526;
-$line-height__large: 1.454;
+$line-height__large: 1.45454545;
 $line-height__medium: 1;
-$line-height__small: 1.1429;
-$line-height__x-small: 1.333;
+$line-height__small: 1;
+$line-height__x-small: 1.333333333;
 
 /*------------------------------------*
       TEXT SIZE CLASSES

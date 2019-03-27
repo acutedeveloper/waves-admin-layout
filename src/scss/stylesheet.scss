@@ -3,13 +3,17 @@
 
 @import "config/variables";
 @import "helpers/mixins";
-@import "helpers/layout-blocks";
 
 @tailwind components;
 @tailwind utilities;
 
 /* Base Elements */
 @import "base/typography";
+@import "base/document";
+
+/* Helpers */
+@import "helpers/layout-blocks";
+@import "helpers/line-height-grid";
 
 /* Components */
 @import "components/wrapper";

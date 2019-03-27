@@ -1,0 +1,38 @@
+/**
+ * Document Base Styles
+ *
+ * This contains the base unit measurements for type and line-heights
+ * Giving the document height 100%
+ * Setting the base font family for the whole project
+ *
+ * ========================================================================= */
+
+html, body {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  width: 100%;
+}
+
+/**
+ * Set Base Font family and size
+ */
+
+html {
+  font-size: 16px;
+  font-size: 100%;
+  font-family: $font-family__regular;
+  color: $base-font-color;
+}
+
+/**
+ * Set Base Line Height
+ */
+
+*, button, input, optgroup, select, textarea {
+  line-height: 16px;
+  line-height: 1rem;
+  //margin: 0 0 1rem;
+}
