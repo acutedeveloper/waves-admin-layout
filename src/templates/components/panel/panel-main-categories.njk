@@ -1,10 +1,18 @@
-    <div class="panel__header" data-pg-name="panel__header" data-pg-collapsed>
-        <div data-pg-name="panel__group" data-pg-collapsed>
-            <div class="uppercase text-size--medium mb-1">Main Categories</div>
-            <p class="text-size--x-small">Sales for main categories in shop</p>
+<div class="panel">
+    <div class="panel__header">
+        <div class="panel__group">
+            <div class="panel__title">Daily Sales</div>
+            <p class="text-size--x-small text-color--mysterious">Use your mouse to see statistics from a particular
+                day</p>
+        </div>
+        <div class="panel__group">
+            <button class="panel__button">
+                <span class="panel__button-mobile-icon"></span>
+                <span class="panel__button-desktop-icon"><i class="icon-clock mr-2"></i>Select Range</span>
+            </button>
         </div>
     </div>
-    <div class="panel__content" data-pg-name="panel__content">
-        {#<img src="https://via.placeholder.com/316x138"/>#}
+    <div class="panel__content">
         <canvas id="mainCategories"></canvas>
     </div>
+</div>

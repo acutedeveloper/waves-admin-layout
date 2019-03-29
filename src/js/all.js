@@ -1,14 +1,43 @@
-class Menu{
+/**
+ *
+ * Toggle My Element
+ *
+ * Simple funtionality to trigger simple interactions on the DOM.
+ *
+ * Provide the class of the click action element
+ * Provide the class of the element that will be triggered
+ * When your class is triggered, use CSS to provide the action
+ *
+ * const config = {
+ *  activateButton: "js-button",
+ *  targetElement: "js-target",
+ *  disableButton: "",
+ *  cssToggleClass: "js-style",
+ *  windowClickDisable: false
+ *  }
+ *
+ */
 
-    constructor(menuObject) {
+class ToggleMyElement {
 
-        this.parentMenu = document.querySelector(`.${menuObject.parentMenuClass}`);
+    constructor(configObject) {
 
-        if(this.parentMenu !== null){
+        // Get values from the configObject
+        this.activateButtonClass = configObject.activateButton;
+        this.disableButtonClass = configObject.disableButton;
+        this.targetElementClass = configObject.targetElement;
+        this.cssToggleClass = configObject.cssToggleClass;
+        this.windowClickDisable = configObject.windowClickDisable || false;
 
-            this.menuToggle = this.parentMenu.querySelector(`.${menuObject.menuToggle}`);
-            this.menu = this.parentMenu.querySelector(`.${menuObject.menu}`);
+        // Get elements from the DOM
+        this.activateButton = document.querySelector(`.${this.activateButtonClass}`);
+        this.targetElement = document.querySelector(`.${this.targetElementClass}`);
 
+        if(this.disableButtonClass !== "") {
+            this.disableButtonClass = document.querySelector(`.${this.disableButtonClass}`);
+        }
+
+        if (this.activateButton !== null || this.targetElement !== null) {
             this.setEvents();
         } else {
             console.error("You have not added a class to the element");
@@ -18,32 +47,42 @@ class Menu{
 
     setEvents() {
 
-        this.menuToggle.addEventListener('click', function(e){
-            this.toggleMenu(e);
+        this.activateButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.toggleCssClass();
         }.bind(this));
 
-        console.log("Events Setup");
-
-    }
-
-    hideMenu() {
-        console.log('hide');
-        if(this.menu.classList.contains("js-active")){
-            this.menu.classList.remove("js-active");
+        if (this.windowClickDisable) {
+            window.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!e.target.classList.contains(this.activateButtonClass)) {
+                    this.removeCssClass();
+                }
+            }.bind(this));
         }
+
     }
 
-    toggleMenu(e) {
-        this.menu.classList.toggle("flex");
+    toggleCssClass() {
+        this.targetElement.classList.toggle(this.cssToggleClass);
+    }
+
+    removeCssClass() {
+        this.targetElement.classList.remove(this.cssToggleClass);
     }
 }
 
-const mainMenu = new Menu({
-    eventType: "hover",
-    parentMenuClass: "js-menu",
-    menuToggle: "js-menu-toggle",
-    menu: "js-menu-list"
-});
+// Use this config object to target the elements needed
+const menuConfig = {
+    activateButton: "js-menu-toggle",
+    targetElement: "js-menu-list",
+    disableButton: "",
+    cssToggleClass: "js-show-menu",
+    windowClickDisable: true
+};
+
+const headerMenu = new ToggleMyElement(menuConfig);
+
 
 var ctx = document.getElementById('dailySales').getContext('2d');
 var myChart = new Chart(ctx, {

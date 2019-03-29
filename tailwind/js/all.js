@@ -6,56 +6,94 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Menu =
+/**
+ *
+ * Toggle My Element
+ *
+ * Simple funtionality to trigger simple interactions on the DOM.
+ *
+ * Provide the class of the click action element
+ * Provide the class of the element that will be triggered
+ * When your class is triggered, use CSS to provide the action
+ *
+ * const config = {
+ *  activateButton: "js-button",
+ *  targetElement: "js-target",
+ *  disableButton: "",
+ *  cssToggleClass: "js-style",
+ *  windowClickDisable: false
+ *  }
+ *
+ */
+var ToggleMyElement =
 /*#__PURE__*/
 function () {
-  function Menu(menuObject) {
-    _classCallCheck(this, Menu);
+  function ToggleMyElement(configObject) {
+    _classCallCheck(this, ToggleMyElement);
 
-    this.parentMenu = document.querySelector(".".concat(menuObject.parentMenuClass));
+    // Get values from the configObject
+    this.activateButtonClass = configObject.activateButton;
+    this.disableButtonClass = configObject.disableButton;
+    this.targetElementClass = configObject.targetElement;
+    this.cssToggleClass = configObject.cssToggleClass;
+    this.windowClickDisable = configObject.windowClickDisable || false; // Get elements from the DOM
 
-    if (this.parentMenu !== null) {
-      this.menuToggle = this.parentMenu.querySelector(".".concat(menuObject.menuToggle));
-      this.menu = this.parentMenu.querySelector(".".concat(menuObject.menu));
+    this.activateButton = document.querySelector(".".concat(this.activateButtonClass));
+    this.targetElement = document.querySelector(".".concat(this.targetElementClass));
+
+    if (this.disableButtonClass !== "") {
+      this.disableButtonClass = document.querySelector(".".concat(this.disableButtonClass));
+    }
+
+    if (this.activateButton !== null || this.targetElement !== null) {
       this.setEvents();
     } else {
       console.error("You have not added a class to the element");
     }
   }
 
-  _createClass(Menu, [{
+  _createClass(ToggleMyElement, [{
     key: "setEvents",
     value: function setEvents() {
-      this.menuToggle.addEventListener('click', function (e) {
-        this.toggleMenu(e);
+      this.activateButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        this.toggleCssClass();
       }.bind(this));
-      console.log("Events Setup");
-    }
-  }, {
-    key: "hideMenu",
-    value: function hideMenu() {
-      console.log('hide');
 
-      if (this.menu.classList.contains("js-active")) {
-        this.menu.classList.remove("js-active");
+      if (this.windowClickDisable) {
+        window.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          if (!e.target.classList.contains(this.activateButtonClass)) {
+            this.removeCssClass();
+          }
+        }.bind(this));
       }
     }
   }, {
-    key: "toggleMenu",
-    value: function toggleMenu(e) {
-      this.menu.classList.toggle("flex");
+    key: "toggleCssClass",
+    value: function toggleCssClass() {
+      this.targetElement.classList.toggle(this.cssToggleClass);
+    }
+  }, {
+    key: "removeCssClass",
+    value: function removeCssClass() {
+      this.targetElement.classList.remove(this.cssToggleClass);
     }
   }]);
 
-  return Menu;
-}();
+  return ToggleMyElement;
+}(); // Use this config object to target the elements needed
 
-var mainMenu = new Menu({
-  eventType: "hover",
-  parentMenuClass: "js-menu",
-  menuToggle: "js-menu-toggle",
-  menu: "js-menu-list"
-});
+
+var menuConfig = {
+  activateButton: "js-menu-toggle",
+  targetElement: "js-menu-list",
+  disableButton: "",
+  cssToggleClass: "js-show-menu",
+  windowClickDisable: true
+};
+var headerMenu = new ToggleMyElement(menuConfig);
 var ctx = document.getElementById('dailySales').getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
