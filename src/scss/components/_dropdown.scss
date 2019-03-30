@@ -22,7 +22,11 @@
   }
 
   &__menu {
-    @apply mt-2 absolute flex flex-col border rounded shadow bg-white py-1 pin-r;
+    @apply hidden mt-2 absolute flex-col border rounded shadow bg-white py-1 pin-r;
+
+    &.js-show-menu {
+      display: flex;
+    }
   }
 
   &__menu-item {

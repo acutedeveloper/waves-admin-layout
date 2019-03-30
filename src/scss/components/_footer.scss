@@ -1,4 +1,7 @@
 .footer {
+
+  $self: &;
+
   @apply flex flex-wrap mt-10;
 
   &__column--left {
@@ -8,31 +11,32 @@
     }
   }
 
+  &__column--right {
+    @apply w-full mt-4;
+    @screen xl {
+      @apply w-2/5 mt-0;
+    }
+  }
 
   &__heading {
     @apply mb-2 uppercase text-color--mysterious;
   }
 
   &__list {
-    @apply list-reset hidden;
-    @screen sm {
-      @apply block;
-    }
+    @apply list-reset;
   }
 
   &__list-item {
     @apply text-size--small text-grey-dark;
+
+    & + #{$self}__list-item {
+      @apply mt-2;
+    }
+
   }
 
   &__link {
     @apply no-underline text-grey-dark;
-  }
-
-  &__column--right {
-    @apply w-full;
-    @screen xl {
-      @apply w-2/5;
-    }
   }
 
   &__social-media-wrap {
@@ -44,11 +48,32 @@
   }
 
   &__content {
-    @apply text-right;
+
+    &--right-align {
+      @apply text-right;
+    }
   }
 
   &__back-to-top {
     @apply bg-white inline-block shadow-md text-size--large p-2 mb-4 rounded;
+  }
+
+  /**
+ * JS Hooks
+ *
+ * For accordion functionality
+ */
+
+  .js-accordion-content {
+    display: none;
+    cursor: pointer;
+    @screen md {
+      display: block;
+    }
+  }
+
+  .js-accordion-show {
+    display: block;
   }
 
 }

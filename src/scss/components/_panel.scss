@@ -1,5 +1,12 @@
 .panel {
+
+  $self: &;
+
   @apply rounded-sm shadow bg-white;
+
+  & + & {
+    margin-top: 1rem;
+  }
 
   &__header {
     @apply flex justify-between items-center p-4 flex-wrap;
@@ -58,6 +65,10 @@
   &__footer-button-icon {
     @apply mr-2;
     //icon-chart-line;
+  }
+
+  canvas {
+    width: 100%;
   }
 
 }

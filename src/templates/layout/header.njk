@@ -1,40 +1,24 @@
 <header class="header">
-    <!-- Media Group -->
-    <div data-pgc="tw.dropdown-menu" class="dropdown">
-        <!-- Button -->
-        <button class="dropdown__button js-menu-toggle">
-            <img src="https://images.unsplash.com/photo-1517305268957-8d20be2c9b62?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjIwOTIyfQq=85&amp;fm=jpg&amp;crop=faces&amp;cs=srgb&amp;w=50&amp;h=50&amp;fit=crop" alt="" class="dropdown__avatar">
-            <div class="dropdown__label-content">
-                <div>
-                    <p class="text-color--mysterious">Olive Houston</p>
-                    <p class="text-color--common-feldspar text-size--small">Marketing Specialist</p>
-                </div>
-                <i class="dropdown__icon-down"></i>
-            </div>
-        </button>
-        <div class="dropdown__menu js-menu-list">
-            <a href="#" class="dropdown__menu-item">Link Item</a>
-            <a href="#" class="dropdown__menu-item">Longer Link Item</a>
-            <a href="#" class="dropdown__menu-item">Another Link Item</a>
-        </div>
-        <!-- Dropdown -->
-    </div>
-    <button class="header__notification-button">
-        <i class="icon-bell"></i>
+
+    <button class="header__sidebar-toggle">
+        <i class="icon-menu"></i>
     </button>
-    <div class="header__group">
-        <!--Dropdown Menu -->
-        <div class="header__media">
-            <img src="images/wave-admin-logo.svg">
-            <div class="header__media-content">
-                <div class="text-size--large text-color--mysterious">WAVES</div>
-                <div class="text-size--x-small text-color--common-feldspar">
-                    ADMINISTRATION PANEL
-</div>
+
+    <!-- Media Group -->
+    <div class="header__media">
+        <img src="images/wave-admin-logo.svg">
+        <div class="header__media-content">
+            <div class="text-size--large text-color--mysterious">WAVES</div>
+            <div class="text-size--x-small text-color--common-feldspar">
+                ADMINISTRATION PANEL
             </div>
         </div>
-        <button class="header__sidebar-toggle">
-            <i class="icon-menu"></i>
+    </div>
+
+    <div class="header__group">
+        <button class="header__notification-button">
+            <i class="icon-bell"></i>
         </button>
+        {% include "components/dropdown-menu.njk" %}
     </div>
 </header>

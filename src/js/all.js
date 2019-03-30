@@ -55,7 +55,8 @@ class ToggleMyElement {
         if (this.windowClickDisable) {
             window.addEventListener('click', function(e) {
                 e.preventDefault();
-                if (!e.target.classList.contains(this.activateButtonClass)) {
+                console.log(e.target.closest(`.${this.activateButtonClass}`));
+                if (e.target.closest(`.${this.activateButtonClass}`) === null) {
                     this.removeCssClass();
                 }
             }.bind(this));
@@ -64,6 +65,7 @@ class ToggleMyElement {
     }
 
     toggleCssClass() {
+        console.log(this.targetElement.classList);
         this.targetElement.classList.toggle(this.cssToggleClass);
     }
 
@@ -82,7 +84,99 @@ const menuConfig = {
 };
 
 const headerMenu = new ToggleMyElement(menuConfig);
+//
+// const sidebarConfig = {
+//     activateButton: "js-sidebar-menu-toggle",
+//     targetElement: "js-sidebar-menu-list",
+//     disableButton: "js-hide-sidebar-menu",
+//     cssToggleClass: "js-show-sidebar-menu",
+//     windowClickDisable: true
+// };
+//
+// const sidebarMenu = new ToggleMyElement(sidebarConfig);
 
+/**
+ *
+ * Accordion
+ *
+ * Simple functionality to reveal related content.
+ *
+ * A parent wrapper div is needed to capture the clicks on multiple accordion items
+ *
+ * <div class="js-accordion-parent">
+ *     <div class="js-accordion-toggle">
+ *         Title Of toggle
+ *     </div>
+ *     <div class="js-accordion-content">
+ *         ...
+ *     </div>
+ * </div>
+ *
+ * const config = {
+ *    accordionParent: "js-accordion-parent",
+ *    accordionToggle: "js-accordion-toggle",
+ *    accordionContent: "js-accordion-content",
+ *    cssToggleClass: "js-accordion-show"
+ * }
+ *
+ */
+
+
+
+class ToggleAccordion {
+
+    constructor(configObject) {
+
+        // Get values from the configObject
+        this.accordionParentClass = configObject.accordionParent;
+        this.accordionToggleClass = configObject.accordionToggle;
+        this.accordionContentClass = configObject.accordionContent;
+        this.cssToggleClass = configObject.cssToggleClass;
+
+        // Get Parent Accordion from the DOM
+        this.accordionParent = document.querySelector(`.${this.accordionParentClass}`);
+
+        if (this.accordionParent !== null) {
+            this.setEvents();
+        } else {
+            console.error("Please define a parent accordion block");
+        }
+
+    }
+
+    setEvents() {
+
+        this.accordionParent.addEventListener('click', function(e) {
+            console.log("Accord");
+            if(e.target.classList.contains(this.accordionToggleClass)) {
+                this.toggleAccordionContent(e.target);
+            }
+
+            e.stopPropagation();
+        }.bind(this));
+
+    }
+
+    toggleAccordionContent(accordionToggle) {
+        // Get the nearest accordion content-block
+        accordionToggle.nextElementSibling.classList.toggle(this.cssToggleClass);
+    }
+
+}
+
+const footerAccordionConfig = {
+    accordionParent: "js-accordion-parent",
+    accordionToggle: "js-accordion-toggle",
+    accordionContent: "js-accordion-content",
+    cssToggleClass: "js-accordion-show"
+};
+
+const footerAccordion = new ToggleAccordion(footerAccordionConfig);
+
+
+/**
+ * ChartJS
+ */
 
 var ctx = document.getElementById('dailySales').getContext('2d');
 var myChart = new Chart(ctx, {

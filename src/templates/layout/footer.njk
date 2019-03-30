@@ -1,11 +1,11 @@
 <!-- Footer -->
 <footer class="footer">
 
-    <div class="footer__column--left">
+    <div class="footer__column--left js-accordion-parent">
         <!-- 3 Up Grid Row -->
         {% set footergrid = [
             {
-                "columnWidth": "w-full sm:w-1/3",
+                "columnWidth": "grid__item--1-3",
                 "templateData": {
                     "include": "components/footer/footer-list.njk",
                     "footerTitle": "Quick Links",
@@ -13,7 +13,7 @@
                 }
             },
             {
-                "columnWidth": "w-full sm:w-1/3",
+                "columnWidth": "grid__item--1-3",
                 "templateData": {
                     "include": "components/footer/footer-list.njk",
                     "footerTitle": "Information",
@@ -21,7 +21,7 @@
                 }
             },
             {
-                "columnWidth": "w-full sm:w-1/3",
+                "columnWidth": "grid__item--1-3",
                 "templateData": {
                     "include": "components/footer/footer-list.njk",
                     "footerTitle": "Other",
@@ -38,13 +38,13 @@
         <!-- 2 Up Grid Row -->
         {% set footergrid = [
             {
-                "columnWidth": "w-full sm:w-1/3",
+                "columnWidth": "grid__item--1-3",
                 "templateData": {
                     "include": "components/footer/footer-social.njk"
                 }
             },
             {
-                "columnWidth": "w-full sm:w-2/3",
+                "columnWidth": "grid__item--2-3",
                 "templateData": {
                     "include": "components/footer/footer-contact.njk"
                 }

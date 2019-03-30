@@ -1,18 +1,12 @@
 .header {
-  @apply justify-between mb-10 items-center;
-
-  &:after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+  @apply flex justify-between mb-10 items-center;
 
   &__notification-button {
-    @apply float-right p-4;
+    @apply p-4;
   }
 
   &__group {
-    @apply flex float-left;
+    @apply flex;
   }
 
   &__media {
@@ -28,6 +22,7 @@
 
   &__sidebar-toggle {
     @apply p-4;
+    margin-left: -1rem;
     @screen md {
       @apply hidden;
     }

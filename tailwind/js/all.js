@@ -63,8 +63,9 @@ function () {
       if (this.windowClickDisable) {
         window.addEventListener('click', function (e) {
           e.preventDefault();
+          console.log(e.target.closest(".".concat(this.activateButtonClass)));
 
-          if (!e.target.classList.contains(this.activateButtonClass)) {
+          if (e.target.closest(".".concat(this.activateButtonClass)) === null) {
             this.removeCssClass();
           }
         }.bind(this));
@@ -73,6 +74,7 @@ function () {
   }, {
     key: "toggleCssClass",
     value: function toggleCssClass() {
+      console.log(this.targetElement.classList);
       this.targetElement.classList.toggle(this.cssToggleClass);
     }
   }, {
@@ -93,7 +95,99 @@ var menuConfig = {
   cssToggleClass: "js-show-menu",
   windowClickDisable: true
 };
-var headerMenu = new ToggleMyElement(menuConfig);
+var headerMenu = new ToggleMyElement(menuConfig); //
+// const sidebarConfig = {
+//     activateButton: "js-sidebar-menu-toggle",
+//     targetElement: "js-sidebar-menu-list",
+//     disableButton: "js-hide-sidebar-menu",
+//     cssToggleClass: "js-show-sidebar-menu",
+//     windowClickDisable: true
+// };
+//
+// const sidebarMenu = new ToggleMyElement(sidebarConfig);
+
+/**
+ *
+ * Accordion
+ *
+ * Simple functionality to reveal related content.
+ *
+ * A parent wrapper div is needed to capture the clicks on multiple accordion items
+ *
+ * <div class="js-accordion-parent">
+ *     <div class="js-accordion-toggle">
+ *         Title Of toggle
+ *     </div>
+ *     <div class="js-accordion-content">
+ *         ...
+ *     </div>
+ * </div>
+ *
+ * const config = {
+ *    accordionParent: "js-accordion-parent",
+ *    accordionToggle: "js-accordion-toggle",
+ *    accordionContent: "js-accordion-content",
+ *    cssToggleClass: "js-accordion-show"
+ * }
+ *
+ */
+
+var ToggleAccordion =
+/*#__PURE__*/
+function () {
+  function ToggleAccordion(configObject) {
+    _classCallCheck(this, ToggleAccordion);
+
+    // Get values from the configObject
+    this.accordionParentClass = configObject.accordionParent;
+    this.accordionToggleClass = configObject.accordionToggle;
+    this.accordionContentClass = configObject.accordionContent;
+    this.cssToggleClass = configObject.cssToggleClass; // Get Parent Accordion from the DOM
+
+    this.accordionParent = document.querySelector(".".concat(this.accordionParentClass));
+
+    if (this.accordionParent !== null) {
+      this.setEvents();
+    } else {
+      console.error("Please define a parent accordion block");
+    }
+  }
+
+  _createClass(ToggleAccordion, [{
+    key: "setEvents",
+    value: function setEvents() {
+      this.accordionParent.addEventListener('click', function (e) {
+        console.log("Accord");
+
+        if (e.target.classList.contains(this.accordionToggleClass)) {
+          this.toggleAccordionContent(e.target);
+        }
+
+        e.stopPropagation();
+      }.bind(this));
+    }
+  }, {
+    key: "toggleAccordionContent",
+    value: function toggleAccordionContent(accordionToggle) {
+      // Get the nearest accordion content-block
+      accordionToggle.nextElementSibling.classList.toggle(this.cssToggleClass);
+    }
+  }]);
+
+  return ToggleAccordion;
+}();
+
+var footerAccordionConfig = {
+  accordionParent: "js-accordion-parent",
+  accordionToggle: "js-accordion-toggle",
+  accordionContent: "js-accordion-content",
+  cssToggleClass: "js-accordion-show"
+};
+var footerAccordion = new ToggleAccordion(footerAccordionConfig);
+/**
+ * ChartJS
+ */
+
 var ctx = document.getElementById('dailySales').getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
@@ -197,61 +291,4 @@ window.onload = function () {
   var ctx = document.getElementById('mainCategories').getContext('2d');
   window.myDoughnut = new Chart(ctx, config);
 };
-"use strict";
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Menu =
-/*#__PURE__*/
-function () {
-  function Menu(menuObject) {
-    _classCallCheck(this, Menu);
-
-    this.parentMenu = document.querySelector(".".concat(menuObject.parentMenuClass));
-
-    if (this.parentMenu !== null) {
-      this.menuToggle = this.parentMenu.querySelector(".".concat(menuObject.menuToggle));
-      this.menu = this.parentMenu.querySelector(".".concat(menuObject.menu));
-      this.setEvents();
-    } else {
-      console.error("You have not added a class to the element");
-    }
-  }
-
-  _createClass(Menu, [{
-    key: "setEvents",
-    value: function setEvents() {
-      this.menuToggle.addEventListener('click', function (e) {
-        this.toggleMenu(e);
-      }.bind(this));
-    }
-  }, {
-    key: "hideMenu",
-    value: function hideMenu() {
-      console.log('hide');
-
-      if (this.menu.classList.contains("js-active")) {
-        this.menu.classList.remove("js-active");
-      }
-    }
-  }, {
-    key: "toggleMenu",
-    value: function toggleMenu(e) {
-      this.menu.classList.toggle("hidden");
-    }
-  }]);
-
-  return Menu;
-}();
-
-var mainMenu = new Menu({
-  eventType: "hover",
-  parentMenuClass: "js-menu",
-  menuToggle: "js-menu-toggle",
-  menu: "js-menu-list"
-});
 //# sourceMappingURL=all.js.map
