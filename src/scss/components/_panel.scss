@@ -20,8 +20,8 @@
 
   &__title {
     @apply uppercase mb-1;
-    //text-color--mysterious;
-    //text-size--medium
+    color: $mysterious;
+    font-size: $text-size__medium;
   }
 
   &__button {
@@ -59,8 +59,10 @@
 
     &--chart-data {
       width: 50%;
+      padding-left: 0.5rem;
       @screen md {
         width: 100%;
+        padding-left: 0;
       }
       @screen lg {
         width: 50%;
@@ -72,9 +74,11 @@
       height: 2rem;
       @screen md {
         width: 100%;
+        margin-top: 1rem;
       }
       @screen lg {
         width: 50%;
+        margin-top: 0;
       }
     }
   }

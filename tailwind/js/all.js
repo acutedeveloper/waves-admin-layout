@@ -192,16 +192,16 @@ var ctx = document.getElementById('dailySales').getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: [,,,,,,,,,,,,,,,,],
+    labels: ["Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning"],
     datasets: [{
-      label: '# of Votes',
-      data: [220, 220, 100, 50, 180, 170, 420, 220, 100, 50, 180, 170, 180, 170, 420, 220, 100],
-      backgroundColor: ['rgba(87, 103, 195, 1)'],
+      label: '# of Sales',
+      data: [210, 110, 50, 25, 90, 85, 210, 110, 50, 25, 90, 65, 90, 60, 210, 110, 50],
+      backgroundColor: ['rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)'],
       borderWidth: 0
     }, {
-      label: '# of Votes',
-      data: [40, 220, 100, 50, 180, 170, 420, 220, 100, 50, 180, 170, 180, 170, 420, 220, 100],
-      backgroundColor: ['rgba(3, 197, 220, 1)'],
+      label: '# of Sales',
+      data: [220, 100, 40, 30, 85, 90, 190, 90, 55, 65, 80, 50, 80, 50, 220, 120, 70],
+      backgroundColor: ['rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)'],
       borderWidth: 0
     }]
   },
@@ -215,9 +215,9 @@ var myChart = new Chart(ctx, {
     labels: {
       defaultFontFamily: "Impact, Haettenschweiler"
     },
-    tooltips: {
-      enabled: false
-    },
+    // tooltips: {
+    //     enabled: false
+    // },
     responsive: true,
     maintainAspectRatio: false,
     scales: {
@@ -233,7 +233,9 @@ var myChart = new Chart(ctx, {
             if (result) {
               return value;
             }
-          }
+          },
+          min: 0,
+          max: 500
         },
         stacked: true
       }],
@@ -310,12 +312,8 @@ var options = {
 
     }],
     yAxes: [{
-      display: false,
-      // Removes the axix on the right hand side - thus removing the padding also
-      ticks: {
-        min: 13,
-        max: 19
-      }
+      display: false // Removes the axix on the right hand side - thus removing the padding also
+
     }]
   },
   layout: {
@@ -330,15 +328,15 @@ new Chart('line-chart__new-customers', {
   type: 'line',
   data: {
     // You need labels for each set of data
-    labels: [,,,,,,],
+    labels: [,,,,,,,,,,,,,],
     datasets: [{
       label: '# of Votes',
-      data: [17, 19, 18, 15, 17, 13],
+      data: [0, 14, 16, 23, 20, 10, 14, 24, 22, 28, 30, 24, 31],
       backgroundColor: 'rgba(255, 255, 132, 0.0)',
       borderColor: 'rgba(0, 197, 220, 1)',
       borderWidth: 3,
       pointRadius: 0,
-      lineTension: 0.5
+      lineTension: 0.1
     }]
   },
   options: options
@@ -347,15 +345,15 @@ new Chart('line-chart__active-users', {
   type: 'line',
   data: {
     // You need labels for each set of data
-    labels: [,,,,,,],
+    labels: [,,,,,,,,,,,,,,],
     datasets: [{
       label: '# of Votes',
-      data: [13, 14, 15, 16, 17, 19],
+      data: [6, 12, 16, 19, 16, 14, 16, 19, 19, 23, 24, 25, 26, 28],
       backgroundColor: 'rgba(255, 255, 132, 0.0)',
       borderColor: 'rgba(87, 103, 195, 1)',
       borderWidth: 3,
       pointRadius: 0,
-      lineTension: 0.5
+      lineTension: 0.1
     }]
   },
   options: options
@@ -364,15 +362,15 @@ new Chart('line-chart__sales', {
   type: 'line',
   data: {
     // You need labels for each set of data
-    labels: [,,,,,,],
+    labels: [,,,,,,,,,,,,],
     datasets: [{
       label: '# of Votes',
-      data: [13, 14, 15, 16, 17, 19],
+      data: [20, 15, 18, 18, 11, 17, 18, 19, 23, 18, 19, 16],
       backgroundColor: 'rgba(255, 255, 132, 0.0)',
       borderColor: 'rgba(255, 184, 34, 1)',
       borderWidth: 3,
       pointRadius: 0,
-      lineTension: 0.5
+      lineTension: 0.1
     }]
   },
   options: options

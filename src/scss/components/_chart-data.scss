@@ -1,0 +1,20 @@
+.chart-data {
+
+  &__big-number {
+    font-family: $font-family__light;
+    font-size: $text-size__x-large;
+    line-height: $line-height__x-large;
+    position: relative;
+
+    [class*="icon"] {
+      position: absolute;
+      font-size: $text-size__small;
+      left: -1.25rem;
+      top: 30%;
+    }
+  }
+
+  &__small-number {
+    @apply absolute pin-r;
+  }
+}

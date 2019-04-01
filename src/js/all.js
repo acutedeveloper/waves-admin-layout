@@ -182,19 +182,51 @@ var ctx = document.getElementById('dailySales').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [,,,,,,,,,,,,,,,,],
+        labels: ["Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning","Morning",],
         datasets: [{
-            label: '# of Votes',
-            data: [220, 220, 100, 50, 180, 170, 420, 220, 100, 50, 180, 170, 180, 170, 420, 220, 100],
+            label: '# of Sales',
+            data: [210, 110, 50, 25, 90, 85, 210, 110, 50, 25, 90, 65, 90, 60, 210, 110, 50],
             backgroundColor: [
-                'rgba(87, 103, 195, 1)'
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
+                'rgba(87, 103, 195, 1)',
             ],
             borderWidth: 0
         },{
-            label: '# of Votes',
-            data: [40, 220, 100, 50, 180, 170, 420, 220, 100, 50, 180, 170, 180, 170, 420, 220, 100],
+            label: '# of Sales',
+            data: [220, 100, 40, 30, 85, 90, 190, 90, 55, 65, 80, 50, 80, 50, 220, 120, 70],
             backgroundColor: [
-                'rgba(3, 197, 220, 1)'
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
+                'rgba(3, 197, 220, 1)',
             ],
             borderWidth: 0
         }],
@@ -209,9 +241,9 @@ var myChart = new Chart(ctx, {
         labels: {
             defaultFontFamily: "Impact, Haettenschweiler",
         },
-        tooltips: {
-            enabled: false
-        },
+        // tooltips: {
+        //     enabled: false
+        // },
         responsive: true,
         maintainAspectRatio: false,
         scales: {
@@ -224,7 +256,9 @@ var myChart = new Chart(ctx, {
                         if (result) {
                             return value;
                         }
-                    }
+                    },
+                    min: 0,
+                    max: 500
                 },
                 stacked: true
             }],

@@ -1,5 +1,6 @@
 .main-content {
   @apply flex-auto grey-gradient p-5;
+  border-left: solid 1px $menu-border;
   @screen md {
     @apply p-10;
   }

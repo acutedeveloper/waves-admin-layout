@@ -1,10 +1,13 @@
 <div class="panel__header panel__header--no-wrap">
     <div class="panel__group--chart-data">
-        <div class="text-size--small uppercase">{{ panelContent.title }}</div>
-        <div class="text-size--x-large">{{ panelContent.bigNumber }}</div>
+        <div class="text-size--small text-color--common-feldspar uppercase">{{ panelContent.title }}</div>
+        <div class="chart-data__big-number relative">
+            <i class="icon-up-dir {{ panelContent.highlightColor }}"></i>
+            {{ panelContent.bigNumber }}
+        </div>
     </div>
-    <div class="panel__group--chart">
-        <canvas style="display: inline-block" id="{{ panelContent.chartId }}"></canvas>
-        {#<img src="https://via.placeholder.com/126x77"/>#}
+    <div class="panel__group--chart relative">
+        <canvas id="{{ panelContent.chartId }}"></canvas>
+        <div class="chart-data__small-number {{ panelContent.highlightColor }}">{{ panelContent.smallNumber }}</div>
     </div>
 </div>
