@@ -7,14 +7,15 @@
   &__column--left {
     @apply w-full;
     @screen xl {
-      @apply w-3/5;
+      width: 45%;
     }
   }
 
   &__column--right {
     @apply w-full mt-4;
     @screen xl {
-      @apply w-2/5 mt-0;
+      @apply mt-0;
+      width: 55%;
     }
   }
 

@@ -259,20 +259,27 @@ var myChart = new Chart(ctx, {
 });
 Chart.defaults.global.defaultFontFamily = "Montserrat--regular, helvetica neue";
 Chart.defaults.global.defaultFontSize = 10; // Chart.gridLines.drawTicks = false;
-// Donut Chart
+"use strict";
+
+var chartData = {
+  // You need labels for each set of data
+  labels: ['Red', 'Blue', 'Yellow'],
+  datasets: [{
+    label: '# of Votes',
+    data: [17, 193, 81],
+    backgroundColor: ['rgba(0, 197, 220, 1)', 'rgba(87, 103, 195, 1)', 'rgba(255, 184, 34, 1)'],
+    borderColor: 'rgba(255, 255, 255, 1)',
+    borderWidth: 3
+  }]
+}; // Donut Chart
 
 var config = {
   type: 'doughnut',
-  data: {
-    datasets: [{
-      data: [24, 28, 48],
-      backgroundColor: ['red', 'orange', 'yellow'],
-      label: 'Dataset 1'
-    }],
-    labels: ['Men', 'Women', 'Accessories']
-  },
+  data: chartData,
   options: {
     responsive: true,
+    maintainAspectRatio: false,
+    cutoutPercentage: 70,
     legend: {
       position: 'right'
     },
@@ -291,4 +298,83 @@ window.onload = function () {
   var ctx = document.getElementById('mainCategories').getContext('2d');
   window.myDoughnut = new Chart(ctx, config);
 };
+"use strict";
+
+var options = {
+  legend: {
+    display: false
+  },
+  scales: {
+    xAxes: [{
+      display: false // Removes the axix on the right hand side - thus removing the padding also
+
+    }],
+    yAxes: [{
+      display: false,
+      // Removes the axix on the right hand side - thus removing the padding also
+      ticks: {
+        min: 13,
+        max: 19
+      }
+    }]
+  },
+  layout: {
+    padding: {
+      bottom: -100
+    }
+  },
+  responsive: true,
+  maintainAspectRatio: false
+};
+new Chart('line-chart__new-customers', {
+  type: 'line',
+  data: {
+    // You need labels for each set of data
+    labels: [,,,,,,],
+    datasets: [{
+      label: '# of Votes',
+      data: [17, 19, 18, 15, 17, 13],
+      backgroundColor: 'rgba(255, 255, 132, 0.0)',
+      borderColor: 'rgba(0, 197, 220, 1)',
+      borderWidth: 3,
+      pointRadius: 0,
+      lineTension: 0.5
+    }]
+  },
+  options: options
+});
+new Chart('line-chart__active-users', {
+  type: 'line',
+  data: {
+    // You need labels for each set of data
+    labels: [,,,,,,],
+    datasets: [{
+      label: '# of Votes',
+      data: [13, 14, 15, 16, 17, 19],
+      backgroundColor: 'rgba(255, 255, 132, 0.0)',
+      borderColor: 'rgba(87, 103, 195, 1)',
+      borderWidth: 3,
+      pointRadius: 0,
+      lineTension: 0.5
+    }]
+  },
+  options: options
+});
+new Chart('line-chart__sales', {
+  type: 'line',
+  data: {
+    // You need labels for each set of data
+    labels: [,,,,,,],
+    datasets: [{
+      label: '# of Votes',
+      data: [13, 14, 15, 16, 17, 19],
+      backgroundColor: 'rgba(255, 255, 132, 0.0)',
+      borderColor: 'rgba(255, 184, 34, 1)',
+      borderWidth: 3,
+      pointRadius: 0,
+      lineTension: 0.5
+    }]
+  },
+  options: options
+});
 //# sourceMappingURL=all.js.map

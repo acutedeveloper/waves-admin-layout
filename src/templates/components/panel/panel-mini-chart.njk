@@ -1,9 +1,10 @@
-<div class="panel__header">
-    <div>
+<div class="panel__header panel__header--no-wrap">
+    <div class="panel__group--chart-data">
         <div class="text-size--small uppercase">{{ panelContent.title }}</div>
         <div class="text-size--x-large">{{ panelContent.bigNumber }}</div>
     </div>
-    <div>
-        <img src="https://via.placeholder.com/145x45">
+    <div class="panel__group--chart">
+        <canvas style="display: inline-block" id="{{ panelContent.chartId }}"></canvas>
+        {#<img src="https://via.placeholder.com/126x77"/>#}
     </div>
 </div>

@@ -9,7 +9,8 @@
             "templateData": {
                 "include": "components/panel/panel-mini-chart.njk",
                 "title": "New Customers",
-                "bigNumber": "142"
+                "bigNumber": "142",
+                "chartId": "line-chart__new-customers"
             }
         },
         {
@@ -17,16 +18,18 @@
             "templateData": {
                 "include": "components/panel/panel-mini-chart.njk",
                 "title": "Active Users",
-                "bigNumber": "384"
-            }
+                "bigNumber": "384",
+                "chartId": "line-chart__active-users"
+        }
         },
         {
             "columnWidth": "grid__item--1-3",
             "templateData": {
                 "include": "components/panel/panel-mini-chart.njk",
                 "title": "Sales",
-                "bigNumber": "$1047"
-            }
+                "bigNumber": "$1047",
+                "chartId": "line-chart__sales"
+        }
         }
     ] %}
     {% call(gridItem) grid.buildGrid(grid1) -%}

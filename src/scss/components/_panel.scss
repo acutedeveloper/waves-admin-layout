@@ -13,6 +13,9 @@
     @screen md {
       @apply p-8;
     }
+    //&--no-wrap {
+    //  flex-wrap: nowrap;
+    //}
   }
 
   &__title {
@@ -49,8 +52,31 @@
     }
   }
 
-  &__group--flex {
-    @apply flex;
+  &__group {
+    &--flex {
+      @apply flex;
+    }
+
+    &--chart-data {
+      width: 50%;
+      @screen md {
+        width: 100%;
+      }
+      @screen lg {
+        width: 50%;
+      }
+    }
+
+    &--chart {
+      width: 50%;
+      height: 2rem;
+      @screen md {
+        width: 100%;
+      }
+      @screen lg {
+        width: 50%;
+      }
+    }
   }
 
   &__footer {
