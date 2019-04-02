@@ -1,4 +1,7 @@
 .panel-table {
+
+  $self: &;
+
   @apply w-full border-b;
 
   &__row {
@@ -32,6 +35,11 @@
 
   &__cell-last {
     @apply w-24 py-4 align-top;
+    text-align: right;
+
+    #{$self}__group {
+      border-left: 1px solid $shiny-grey;
+    }
   }
 
 }

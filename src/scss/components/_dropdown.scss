@@ -23,6 +23,7 @@
 
   &__menu {
     @apply hidden mt-2 absolute flex-col border rounded shadow bg-white py-1 pin-r;
+    z-index: 10;
 
     &.js-show-menu {
       display: flex;
@@ -31,6 +32,10 @@
 
   &__menu-item {
     @apply px-4 py-2 no-underline text-grey-darkest whitespace-no-wrap;
+
+    &:hover {
+      background-color: $shiny-grey;
+    }
   }
 
 }

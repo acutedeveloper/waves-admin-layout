@@ -1,8 +1,8 @@
-<div class="panel__header panel__header--no-wrap">
+<div class="panel__header panel__header--wrap">
     <div class="panel__group--chart-data">
         <div class="text-size--small text-color--common-feldspar uppercase">{{ panelContent.title }}</div>
         <div class="chart-data__big-number relative">
-            <i class="icon-up-dir {{ panelContent.highlightColor }}"></i>
+            <i class="{{ panelContent.arrowDir }} {{ panelContent.highlightColor }}"></i>
             {{ panelContent.bigNumber }}
         </div>
     </div>

@@ -9,13 +9,13 @@
   }
 
   &__header {
-    @apply flex justify-between items-center p-4 flex-wrap;
+    @apply flex justify-between items-center p-4;
     @screen md {
       @apply p-8;
     }
-    //&--no-wrap {
-    //  flex-wrap: nowrap;
-    //}
+    &--wrap {
+      flex-wrap: wrap;
+    }
   }
 
   &__title {
@@ -26,29 +26,37 @@
 
   &__button {
     @apply justify-center items-center whitespace-no-wrap relative text-left;
-    //js-menu-toggle
-  }
+    color: $common-feldspar;
 
-  &__button-mobile-icon {
-    @apply p-2;
-    //icon-clock
-    @screen md {
-      @apply hidden;
+    &:hover {
+      color: $mysterious;
+    }
+
+    &:focus {
+      outline:0;
+    }
+
+    & + #{$self}__button {
+      margin-left: 1rem;
+    }
+
+    &--active {
+      color: $mysterious;
     }
   }
 
-  &__button-desktop-icon {
+  &__button-text {
     @apply hidden;
-    //text-size--x-small
+    font-size: $text-size__small;
     @screen md {
-      @apply inline;
+      display: inline;
     }
   }
 
   &__content {
     @apply p-4 pt-0;
     @screen md {
-      @apply p-8;
+      @apply p-8 pt-0;
     }
   }
 
@@ -89,12 +97,11 @@
 
   &__footer-button {
     @apply uppercase;
-    //text-size--x-small;
+    font-size: $text-size__x-small;
   }
 
   &__footer-button-icon {
     @apply mr-2;
-    //icon-chart-line;
   }
 
   canvas {
