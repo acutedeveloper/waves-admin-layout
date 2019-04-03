@@ -43,13 +43,13 @@ function () {
   function ToggleMyElement(configObject) {
     _classCallCheck(this, ToggleMyElement);
 
-    console.log(configObject); // Get values from the configObject
-
+    // Get values from the configObject
     this.activateButtonClass = configObject.activateButton;
     this.disableButtonClass = configObject.disableButton;
     this.targetElementClass = configObject.targetElement;
     this.cssToggleClass = configObject.cssToggleClass;
-    this.windowClickDisable = configObject.windowClickDisable || false; // Get elements from the DOM
+    this.windowClickDisable = configObject.windowClickDisable || false;
+    this.dispatchEventName = configObject.dispatchEventName || "toggleMyElement"; // Get elements from the DOM
 
     this.activateButton = document.querySelector(".".concat(this.activateButtonClass));
     this.targetElement = document.querySelector(".".concat(this.targetElementClass));
@@ -68,6 +68,7 @@ function () {
   _createClass(ToggleMyElement, [{
     key: "setEvents",
     value: function setEvents() {
+      console.log("setEvents:", this.dispatchEventName);
       this.activateButton.addEventListener('click', function (e) {
         e.preventDefault();
         this.toggleCssClass();
@@ -76,9 +77,8 @@ function () {
       if (this.windowClickDisable) {
         window.addEventListener('click', function (e) {
           e.preventDefault();
-          console.log('Set Events: Window Listener', e.target.closest(".".concat(this.activateButtonClass)));
 
-          if (e.target.closest(".".concat(this.activateButtonClass)) === null) {
+          if (!e.target.classList.contains(this.activateButtonClass)) {
             this.removeCssClass();
           }
         }.bind(this));
@@ -87,18 +87,20 @@ function () {
   }, {
     key: "toggleCssClass",
     value: function toggleCssClass() {
-      this.targetElement.classList.toggle(this.cssToggleClass); // this.sendEventNotice("class-toggled");
+      this.targetElement.classList.toggle(this.cssToggleClass);
+      this.sendEventNotice("class-toggled");
     }
   }, {
     key: "removeCssClass",
     value: function removeCssClass() {
-      this.targetElement.classList.remove(this.cssToggleClass); // this.sendEventNotice("class-removed");
+      this.targetElement.classList.remove(this.cssToggleClass);
+      this.sendEventNotice("class-removed");
     }
   }, {
     key: "sendEventNotice",
     value: function sendEventNotice(eventAction) {
-      var event = new CustomEvent("toggleMyElement", {
-        "detail": eventAction
+      var event = new CustomEvent(this.dispatchEventName, {
+        "details": eventAction
       });
       document.dispatchEvent(event);
     }
@@ -122,18 +124,34 @@ var SidebarToggle =
 function (_ToggleMyElement) {
   _inherits(SidebarToggle, _ToggleMyElement);
 
-  function SidebarToggle(configObject) {
+  function SidebarToggle(config) {
+    var _this;
+
     _classCallCheck(this, SidebarToggle);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SidebarToggle).call(this, configObject)); //this.setEvents();
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SidebarToggle).call(this, config));
+
+    _this.setEvent(); // Sub class element
+
+
+    _this.subClassElementClass = config.subClassElement; // Get elements from the DOM
+
+    _this.subClassElement = document.querySelector(".".concat(_this.subClassElementClass));
+    return _this;
   }
 
   _createClass(SidebarToggle, [{
-    key: "setEvents",
-    value: function setEvents() {
-      document.addEventListener("toggleMyElement", function (e) {
+    key: "setEvent",
+    value: function setEvent() {
+      document.addEventListener("moveMainContent", function (e) {
         console.log(e);
-      });
+        this.toggleElement();
+      }.bind(this));
+    }
+  }, {
+    key: "toggleElement",
+    value: function toggleElement() {
+      this.subClassElement.classList.toggle("js-main-block-show");
     }
   }]);
 
@@ -145,7 +163,9 @@ var sidebarConfig = {
   targetElement: "js-sidebar",
   disableButton: "js-sidebar-hide",
   cssToggleClass: "js-sidebar-show",
-  windowClickDisable: false
+  windowClickDisable: false,
+  dispatchEventName: "moveMainContent",
+  subClassElement: "js-main-block"
 };
 var sidebarMenu = new SidebarToggle(sidebarConfig);
 /**

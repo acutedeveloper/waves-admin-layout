@@ -22,14 +22,13 @@ class ToggleMyElement {
 
     constructor(configObject) {
 
-        console.log(configObject);
-
         // Get values from the configObject
         this.activateButtonClass = configObject.activateButton;
         this.disableButtonClass = configObject.disableButton;
         this.targetElementClass = configObject.targetElement;
         this.cssToggleClass = configObject.cssToggleClass;
         this.windowClickDisable = configObject.windowClickDisable || false;
+        this.dispatchEventName = configObject.dispatchEventName || "toggleMyElement";
 
         // Get elements from the DOM
         this.activateButton = document.querySelector(`.${this.activateButtonClass}`);
@@ -49,6 +48,8 @@ class ToggleMyElement {
 
     setEvents() {
 
+        console.log("setEvents:", this.dispatchEventName);
+
         this.activateButton.addEventListener('click', function(e) {
             e.preventDefault();
             this.toggleCssClass();
@@ -57,8 +58,7 @@ class ToggleMyElement {
         if (this.windowClickDisable) {
             window.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log('Set Events: Window Listener',e.target.closest(`.${this.activateButtonClass}`));
-                if (e.target.closest(`.${this.activateButtonClass}`) === null) {
+                if (!e.target.classList.contains(this.activateButtonClass)) {
                     this.removeCssClass();
                 }
             }.bind(this));
@@ -68,16 +68,16 @@ class ToggleMyElement {
 
     toggleCssClass() {
         this.targetElement.classList.toggle(this.cssToggleClass);
-        // this.sendEventNotice("class-toggled");
+        this.sendEventNotice("class-toggled");
     }
 
     removeCssClass() {
         this.targetElement.classList.remove(this.cssToggleClass);
-        // this.sendEventNotice("class-removed");
+        this.sendEventNotice("class-removed");
     }
 
     sendEventNotice(eventAction) {
-        var event = new CustomEvent("toggleMyElement", { "detail": eventAction });
+        var event = new CustomEvent(this.dispatchEventName, { "details": eventAction });
         document.dispatchEvent(event);
     }
 }
@@ -95,15 +95,30 @@ const headerMenu = new ToggleMyElement(menuConfig);
 
 class SidebarToggle extends ToggleMyElement {
 
-    constructor(configObject) {
-        super(configObject);
-        //this.setEvents();
+    constructor(config){
+
+        super(config);
+        this.setEvent();
+
+        // Sub class element
+        this.subClassElementClass = config.subClassElement;
+
+        // Get elements from the DOM
+        this.subClassElement = document.querySelector(`.${this.subClassElementClass}`);
+
     }
 
-    setEvents() {
-        document.addEventListener("toggleMyElement", function(e){
+    setEvent(){
+
+        document.addEventListener("moveMainContent", function(e){
             console.log(e);
-        })
+            this.toggleElement();
+        }.bind(this));
+
+    }
+
+    toggleElement() {
+        this.subClassElement.classList.toggle("js-main-block-show");
     }
 
 }
@@ -113,7 +128,9 @@ const sidebarConfig = {
     targetElement: "js-sidebar",
     disableButton: "js-sidebar-hide",
     cssToggleClass: "js-sidebar-show",
-    windowClickDisable: false
+    windowClickDisable: false,
+    dispatchEventName: "moveMainContent",
+    subClassElement: "js-main-block"
 };
 
 const sidebarMenu = new SidebarToggle(sidebarConfig);

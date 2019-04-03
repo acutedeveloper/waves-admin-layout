@@ -1,7 +1,15 @@
 .main-content {
   @apply flex-auto grey-gradient p-5;
   border-left: solid 1px $menu-border;
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+
   @screen md {
     @apply p-10;
+  }
+
+  &.js-main-block-show {
+    margin-left: 128px;
   }
 }
