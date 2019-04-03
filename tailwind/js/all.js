@@ -1,5 +1,17 @@
 "use strict";
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -31,7 +43,8 @@ function () {
   function ToggleMyElement(configObject) {
     _classCallCheck(this, ToggleMyElement);
 
-    // Get values from the configObject
+    console.log(configObject); // Get values from the configObject
+
     this.activateButtonClass = configObject.activateButton;
     this.disableButtonClass = configObject.disableButton;
     this.targetElementClass = configObject.targetElement;
@@ -63,7 +76,7 @@ function () {
       if (this.windowClickDisable) {
         window.addEventListener('click', function (e) {
           e.preventDefault();
-          console.log(e.target.closest(".".concat(this.activateButtonClass)));
+          console.log('Set Events: Window Listener', e.target.closest(".".concat(this.activateButtonClass)));
 
           if (e.target.closest(".".concat(this.activateButtonClass)) === null) {
             this.removeCssClass();
@@ -74,13 +87,20 @@ function () {
   }, {
     key: "toggleCssClass",
     value: function toggleCssClass() {
-      console.log(this.targetElement.classList);
-      this.targetElement.classList.toggle(this.cssToggleClass);
+      this.targetElement.classList.toggle(this.cssToggleClass); // this.sendEventNotice("class-toggled");
     }
   }, {
     key: "removeCssClass",
     value: function removeCssClass() {
-      this.targetElement.classList.remove(this.cssToggleClass);
+      this.targetElement.classList.remove(this.cssToggleClass); // this.sendEventNotice("class-removed");
+    }
+  }, {
+    key: "sendEventNotice",
+    value: function sendEventNotice(eventAction) {
+      var event = new CustomEvent("toggleMyElement", {
+        "detail": eventAction
+      });
+      document.dispatchEvent(event);
     }
   }]);
 
@@ -95,17 +115,39 @@ var menuConfig = {
   cssToggleClass: "js-show-menu",
   windowClickDisable: true
 };
-var headerMenu = new ToggleMyElement(menuConfig); //
-// const sidebarConfig = {
-//     activateButton: "js-sidebar-menu-toggle",
-//     targetElement: "js-sidebar-menu-list",
-//     disableButton: "js-hide-sidebar-menu",
-//     cssToggleClass: "js-show-sidebar-menu",
-//     windowClickDisable: true
-// };
-//
-// const sidebarMenu = new ToggleMyElement(sidebarConfig);
+var headerMenu = new ToggleMyElement(menuConfig);
 
+var SidebarToggle =
+/*#__PURE__*/
+function (_ToggleMyElement) {
+  _inherits(SidebarToggle, _ToggleMyElement);
+
+  function SidebarToggle(configObject) {
+    _classCallCheck(this, SidebarToggle);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SidebarToggle).call(this, configObject)); //this.setEvents();
+  }
+
+  _createClass(SidebarToggle, [{
+    key: "setEvents",
+    value: function setEvents() {
+      document.addEventListener("toggleMyElement", function (e) {
+        console.log(e);
+      });
+    }
+  }]);
+
+  return SidebarToggle;
+}(ToggleMyElement);
+
+var sidebarConfig = {
+  activateButton: "js-sidebar-toggle",
+  targetElement: "js-sidebar",
+  disableButton: "js-sidebar-hide",
+  cssToggleClass: "js-sidebar-show",
+  windowClickDisable: false
+};
+var sidebarMenu = new SidebarToggle(sidebarConfig);
 /**
  *
  * Accordion

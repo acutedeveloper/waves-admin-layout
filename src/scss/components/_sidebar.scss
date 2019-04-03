@@ -1,7 +1,21 @@
 .sidebar {
-  @apply grey-light-gradient w-32 hidden;
-  //shiny-grey;
+  @apply grey-light-gradient w-32;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: -190px;
+  z-index: 10;
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+
+  &.js-sidebar-show {
+    left: 0px;
+  }
+
   @screen lg {
     @apply block;
+    position: relative;
+    left: 0;
   }
 }

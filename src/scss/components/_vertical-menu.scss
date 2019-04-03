@@ -2,7 +2,7 @@
 
   $self: &;
 
-  @apply h-full flex-col justify-between hidden mt-10;
+  @apply h-full flex-col justify-between mt-10;
   @screen md {
     @apply flex;
   }
@@ -32,9 +32,11 @@
 
   &__link-text {
     @apply whitespace-no-wrap uppercase;
-    visibility: hidden;
     margin-top: 0.5rem;
     font-size: $text-size__small;
+    @screen md {
+      visibility: hidden;
+    }
   }
 
 }

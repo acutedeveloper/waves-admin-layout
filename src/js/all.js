@@ -22,6 +22,8 @@ class ToggleMyElement {
 
     constructor(configObject) {
 
+        console.log(configObject);
+
         // Get values from the configObject
         this.activateButtonClass = configObject.activateButton;
         this.disableButtonClass = configObject.disableButton;
@@ -55,7 +57,7 @@ class ToggleMyElement {
         if (this.windowClickDisable) {
             window.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log(e.target.closest(`.${this.activateButtonClass}`));
+                console.log('Set Events: Window Listener',e.target.closest(`.${this.activateButtonClass}`));
                 if (e.target.closest(`.${this.activateButtonClass}`) === null) {
                     this.removeCssClass();
                 }
@@ -65,12 +67,18 @@ class ToggleMyElement {
     }
 
     toggleCssClass() {
-        console.log(this.targetElement.classList);
         this.targetElement.classList.toggle(this.cssToggleClass);
+        // this.sendEventNotice("class-toggled");
     }
 
     removeCssClass() {
         this.targetElement.classList.remove(this.cssToggleClass);
+        // this.sendEventNotice("class-removed");
+    }
+
+    sendEventNotice(eventAction) {
+        var event = new CustomEvent("toggleMyElement", { "detail": eventAction });
+        document.dispatchEvent(event);
     }
 }
 
@@ -84,16 +92,31 @@ const menuConfig = {
 };
 
 const headerMenu = new ToggleMyElement(menuConfig);
-//
-// const sidebarConfig = {
-//     activateButton: "js-sidebar-menu-toggle",
-//     targetElement: "js-sidebar-menu-list",
-//     disableButton: "js-hide-sidebar-menu",
-//     cssToggleClass: "js-show-sidebar-menu",
-//     windowClickDisable: true
-// };
-//
-// const sidebarMenu = new ToggleMyElement(sidebarConfig);
+
+class SidebarToggle extends ToggleMyElement {
+
+    constructor(configObject) {
+        super(configObject);
+        //this.setEvents();
+    }
+
+    setEvents() {
+        document.addEventListener("toggleMyElement", function(e){
+            console.log(e);
+        })
+    }
+
+}
+
+const sidebarConfig = {
+    activateButton: "js-sidebar-toggle",
+    targetElement: "js-sidebar",
+    disableButton: "js-sidebar-hide",
+    cssToggleClass: "js-sidebar-show",
+    windowClickDisable: false
+};
+
+const sidebarMenu = new SidebarToggle(sidebarConfig);
 
 /**
  *
