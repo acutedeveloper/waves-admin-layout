@@ -2,9 +2,10 @@
 
   $self: &;
 
-  @apply h-full flex-col justify-between mt-10;
+  @apply h-full flex-col justify-between;
   @screen md {
     @apply flex;
+    margin-top: 8.25rem;
   }
   &__list {
     @apply list-reset;

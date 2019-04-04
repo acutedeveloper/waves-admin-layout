@@ -18,6 +18,34 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+var wavesAdminDebounce = function wavesAdminDebounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+        args = arguments;
+
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}; // Create the listener function
+
+
+var updateLayout = wavesAdminDebounce(function (e) {
+  // Does all the layout updating here
+  dailySalesChart.redrawChart();
+  mainCategoriesChart.redrawChart();
+  lineCharts.redrawChart();
+}, 500); // Maximum run of once per 500 milliseconds
+// Add the event listener
+
+window.addEventListener("resize", updateLayout, false);
 /**
  *
  * Toggle My Element
@@ -37,6 +65,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *  }
  *
  */
+
 var ToggleMyElement =
 /*#__PURE__*/
 function () {
@@ -246,195 +275,234 @@ var footerAccordionConfig = {
   cssToggleClass: "js-accordion-show"
 };
 var footerAccordion = new ToggleAccordion(footerAccordionConfig);
-/**
- * ChartJS
- */
+"use strict";
 
-var ctx = document.getElementById('dailySales').getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning"],
+var dailySalesChart = function () {
+  /**
+   * ChartJS
+   */
+  var config = {
+    type: 'bar',
+    data: {
+      labels: ["Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning", "Morning"],
+      datasets: [{
+        label: '# of Sales',
+        data: [210, 110, 50, 25, 90, 85, 210, 110, 50, 25, 90, 65, 90, 60, 210, 110, 50],
+        backgroundColor: ['rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)'],
+        borderWidth: 0
+      }, {
+        label: '# of Sales',
+        data: [220, 100, 40, 30, 85, 90, 190, 90, 55, 65, 80, 50, 80, 50, 220, 120, 70],
+        backgroundColor: ['rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)'],
+        borderWidth: 0
+      }]
+    },
+    scale: {
+      display: false
+    },
+    options: {
+      legend: {
+        display: false
+      },
+      labels: {
+        defaultFontFamily: "Impact, Haettenschweiler"
+      },
+      // tooltips: {
+      //     enabled: false
+      // },
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        yAxes: [{
+          gridLines: {
+            drawTicks: false
+          },
+          ticks: {
+            beginAtZero: true,
+            callback: function callback(value, index, values) {
+              var result = value / 100 % 1 === 0;
+
+              if (result) {
+                return value;
+              }
+            },
+            min: 0,
+            max: 500
+          },
+          stacked: true
+        }],
+        xAxes: [{
+          display: false,
+          // Removes the axix on the right hand side - thus removing the padding also
+          barPercentage: 0.5,
+          stacked: true
+        }],
+        pointLabels: {
+          fontStyle: "bold"
+        }
+      },
+      layout: {
+        padding: {
+          // left: 0,
+          // right: 0,
+          // top: 0,
+          bottom: -100
+        }
+      }
+    }
+  };
+  var ctx = document.getElementById('dailySales').getContext('2d');
+  var barChart = new Chart(ctx, config);
+  Chart.defaults.global.defaultFontFamily = "Montserrat--regular, helvetica neue";
+  Chart.defaults.global.defaultFontSize = 10;
+
+  function redrawChart() {
+    barChart.destroy();
+    barChart = new Chart(ctx, config);
+  }
+
+  return {
+    redrawChart: redrawChart
+  };
+}();
+"use strict";
+
+var mainCategoriesChart = function () {
+  var chartData = {
+    // You need labels for each set of data
+    labels: ['Red', 'Blue', 'Yellow'],
     datasets: [{
-      label: '# of Sales',
-      data: [210, 110, 50, 25, 90, 85, 210, 110, 50, 25, 90, 65, 90, 60, 210, 110, 50],
-      backgroundColor: ['rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)', 'rgba(87, 103, 195, 1)'],
-      borderWidth: 0
-    }, {
-      label: '# of Sales',
-      data: [220, 100, 40, 30, 85, 90, 190, 90, 55, 65, 80, 50, 80, 50, 220, 120, 70],
-      backgroundColor: ['rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)', 'rgba(3, 197, 220, 1)'],
-      borderWidth: 0
+      label: '# of Votes',
+      data: [17, 193, 81],
+      backgroundColor: ['rgba(0, 197, 220, 1)', 'rgba(87, 103, 195, 1)', 'rgba(255, 184, 34, 1)'],
+      borderColor: 'rgba(255, 255, 255, 1)',
+      borderWidth: 3
     }]
-  },
-  scale: {
-    display: false
-  },
-  options: {
+  }; // Donut Chart
+
+  var config = {
+    type: 'doughnut',
+    data: chartData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutoutPercentage: 70,
+      legend: {
+        position: 'right'
+      },
+      // title: {
+      //     display: true,
+      //     text: 'Chart.js Doughnut Chart'
+      // },
+      animation: {
+        animateScale: true,
+        animateRotate: true
+      }
+    }
+  };
+  var donughtChartCanvas = document.getElementById('mainCategories').getContext('2d');
+  var donughtChart = new Chart(donughtChartCanvas, config);
+
+  function redrawChart() {
+    donughtChart.destroy();
+    donughtChart = new Chart(donughtChartCanvas, config);
+  }
+
+  return {
+    redrawChart: redrawChart
+  };
+}();
+"use strict";
+
+var lineCharts = function () {
+  var options = {
     legend: {
       display: false
     },
-    labels: {
-      defaultFontFamily: "Impact, Haettenschweiler"
-    },
-    // tooltips: {
-    //     enabled: false
-    // },
-    responsive: true,
-    maintainAspectRatio: false,
     scales: {
-      yAxes: [{
-        gridLines: {
-          drawTicks: false
-        },
-        ticks: {
-          beginAtZero: true,
-          callback: function callback(value, index, values) {
-            var result = value / 100 % 1 === 0;
-
-            if (result) {
-              return value;
-            }
-          },
-          min: 0,
-          max: 500
-        },
-        stacked: true
-      }],
       xAxes: [{
-        display: false,
-        // Removes the axix on the right hand side - thus removing the padding also
-        barPercentage: 0.5,
-        stacked: true
+        display: false // Removes the axix on the right hand side - thus removing the padding also
+
       }],
-      pointLabels: {
-        fontStyle: "bold"
-      }
+      yAxes: [{
+        display: false // Removes the axix on the right hand side - thus removing the padding also
+
+      }]
     },
     layout: {
       padding: {
-        // left: 0,
-        // right: 0,
-        // top: 0,
         bottom: -100
       }
-    }
-  }
-});
-Chart.defaults.global.defaultFontFamily = "Montserrat--regular, helvetica neue";
-Chart.defaults.global.defaultFontSize = 10; // Chart.gridLines.drawTicks = false;
-"use strict";
-
-var chartData = {
-  // You need labels for each set of data
-  labels: ['Red', 'Blue', 'Yellow'],
-  datasets: [{
-    label: '# of Votes',
-    data: [17, 193, 81],
-    backgroundColor: ['rgba(0, 197, 220, 1)', 'rgba(87, 103, 195, 1)', 'rgba(255, 184, 34, 1)'],
-    borderColor: 'rgba(255, 255, 255, 1)',
-    borderWidth: 3
-  }]
-}; // Donut Chart
-
-var config = {
-  type: 'doughnut',
-  data: chartData,
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    cutoutPercentage: 70,
-    legend: {
-      position: 'right'
     },
-    // title: {
-    //     display: true,
-    //     text: 'Chart.js Doughnut Chart'
-    // },
-    animation: {
-      animateScale: true,
-      animateRotate: true
-    }
+    responsive: true,
+    maintainAspectRatio: false
+  };
+  var newCustomersConfig = {
+    type: 'line',
+    data: {
+      // You need labels for each set of data
+      labels: [,,,,,,,,,,,,,],
+      datasets: [{
+        label: '# of Votes',
+        data: [0, 14, 16, 23, 20, 10, 14, 24, 22, 28, 30, 24, 31],
+        backgroundColor: 'rgba(255, 255, 132, 0.0)',
+        borderColor: 'rgba(0, 197, 220, 1)',
+        borderWidth: 3,
+        pointRadius: 0,
+        lineTension: 0.1
+      }]
+    },
+    options: options
+  };
+  var newCustomersChart = new Chart('line-chart__new-customers', newCustomersConfig);
+  var activeUsersConfig = {
+    type: 'line',
+    data: {
+      // You need labels for each set of data
+      labels: [,,,,,,,,,,,,,,],
+      datasets: [{
+        label: '# of Votes',
+        data: [6, 12, 16, 19, 16, 14, 16, 19, 19, 23, 24, 25, 26, 28],
+        backgroundColor: 'rgba(255, 255, 132, 0.0)',
+        borderColor: 'rgba(87, 103, 195, 1)',
+        borderWidth: 3,
+        pointRadius: 0,
+        lineTension: 0.1
+      }]
+    },
+    options: options
+  };
+  var activeUsersChart = new Chart('line-chart__active-users', activeUsersConfig);
+  var salesChartConfig = {
+    type: 'line',
+    data: {
+      // You need labels for each set of data
+      labels: [,,,,,,,,,,,,],
+      datasets: [{
+        label: '# of Votes',
+        data: [20, 15, 18, 18, 11, 17, 18, 19, 23, 18, 19, 16],
+        backgroundColor: 'rgba(255, 255, 132, 0.0)',
+        borderColor: 'rgba(255, 184, 34, 1)',
+        borderWidth: 3,
+        pointRadius: 0,
+        lineTension: 0.1
+      }]
+    },
+    options: options
+  };
+  var salesChart = new Chart('line-chart__sales', salesChartConfig);
+
+  function redrawChart() {
+    salesChart.destroy();
+    salesChart = new Chart('line-chart__new-customers', newCustomersConfig);
+    activeUsersChart.destroy();
+    activeUsersChart = new Chart('line-chart__active-users', activeUsersConfig);
+    newCustomersChart.destroy();
+    newCustomersChart = new Chart('line-chart__sales', salesChartConfig);
   }
-};
 
-window.onload = function () {
-  var ctx = document.getElementById('mainCategories').getContext('2d');
-  window.myDoughnut = new Chart(ctx, config);
-};
-"use strict";
-
-var options = {
-  legend: {
-    display: false
-  },
-  scales: {
-    xAxes: [{
-      display: false // Removes the axix on the right hand side - thus removing the padding also
-
-    }],
-    yAxes: [{
-      display: false // Removes the axix on the right hand side - thus removing the padding also
-
-    }]
-  },
-  layout: {
-    padding: {
-      bottom: -100
-    }
-  },
-  responsive: true,
-  maintainAspectRatio: false
-};
-new Chart('line-chart__new-customers', {
-  type: 'line',
-  data: {
-    // You need labels for each set of data
-    labels: [,,,,,,,,,,,,,],
-    datasets: [{
-      label: '# of Votes',
-      data: [0, 14, 16, 23, 20, 10, 14, 24, 22, 28, 30, 24, 31],
-      backgroundColor: 'rgba(255, 255, 132, 0.0)',
-      borderColor: 'rgba(0, 197, 220, 1)',
-      borderWidth: 3,
-      pointRadius: 0,
-      lineTension: 0.1
-    }]
-  },
-  options: options
-});
-new Chart('line-chart__active-users', {
-  type: 'line',
-  data: {
-    // You need labels for each set of data
-    labels: [,,,,,,,,,,,,,,],
-    datasets: [{
-      label: '# of Votes',
-      data: [6, 12, 16, 19, 16, 14, 16, 19, 19, 23, 24, 25, 26, 28],
-      backgroundColor: 'rgba(255, 255, 132, 0.0)',
-      borderColor: 'rgba(87, 103, 195, 1)',
-      borderWidth: 3,
-      pointRadius: 0,
-      lineTension: 0.1
-    }]
-  },
-  options: options
-});
-new Chart('line-chart__sales', {
-  type: 'line',
-  data: {
-    // You need labels for each set of data
-    labels: [,,,,,,,,,,,,],
-    datasets: [{
-      label: '# of Votes',
-      data: [20, 15, 18, 18, 11, 17, 18, 19, 23, 18, 19, 16],
-      backgroundColor: 'rgba(255, 255, 132, 0.0)',
-      borderColor: 'rgba(255, 184, 34, 1)',
-      borderWidth: 3,
-      pointRadius: 0,
-      lineTension: 0.1
-    }]
-  },
-  options: options
-});
+  return {
+    redrawChart: redrawChart
+  };
+}();
 //# sourceMappingURL=all.js.map
