@@ -3,6 +3,23 @@
 
   &__notification-button {
     @apply p-4;
+    position: relative;
+    color: $mysterious;
+
+    &:before{
+      position: absolute;
+      background-color: $too-gold;
+      background-clip: padding-box;
+      border-radius: .5rem;
+      box-shadow: 0 0 0 .1rem #fff;
+      color: #fff;
+      content: attr(data-badge);
+      display: inline-block;
+      height: 6px;
+      min-width: 6px;
+      top: 1.1rem;
+      right: 1.15rem;
+    }
   }
 
   &__group {

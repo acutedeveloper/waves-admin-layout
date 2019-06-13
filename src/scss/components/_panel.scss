@@ -42,8 +42,19 @@
     }
   }
 
-  &__map-wapper {
-    @apply absolute pin-l pin-r pin-b pin-t overflow-scroll;
+  &__map-wrapper {
+    @apply absolute pin-l pin-r pin-b pin-t;
+    overflow: hidden;
+  }
+
+  &__map {
+    position: absolute;
+    left: -200px;
+    top: -50px;
+    @screen md {
+      left: -290px;
+      top: initial;
+    }
   }
 
   &__title {

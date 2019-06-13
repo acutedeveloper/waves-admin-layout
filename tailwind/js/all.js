@@ -144,7 +144,7 @@ var menuConfig = {
   targetElement: "js-menu-list",
   disableButton: "",
   cssToggleClass: "js-show-menu",
-  windowClickDisable: true
+  windowClickDisable: false
 };
 var headerMenu = new ToggleMyElement(menuConfig);
 
@@ -493,11 +493,11 @@ var lineCharts = function () {
   var salesChart = new Chart('line-chart__sales', salesChartConfig);
 
   function redrawChart() {
-    salesChart.destroy();
+    salesChart.update();
     salesChart = new Chart('line-chart__new-customers', newCustomersConfig);
-    activeUsersChart.destroy();
+    activeUsersChart.update();
     activeUsersChart = new Chart('line-chart__active-users', activeUsersConfig);
-    newCustomersChart.destroy();
+    newCustomersChart.update();
     newCustomersChart = new Chart('line-chart__sales', salesChartConfig);
   }
 
@@ -505,4 +505,45 @@ var lineCharts = function () {
     redrawChart: redrawChart
   };
 }();
+"use strict";
+
+(function () {
+  var mapMarkers = document.querySelector('#mapMarkers');
+  mapMarkers.addEventListener('click', function (e) {
+    if (e.target.closest(".map-marker")) {
+      showTooltip(e.target.closest(".map-marker"), "YaaaaaYYYY!");
+    }
+  });
+
+  function showTooltip(element, text) {
+    var pointLeftClass = "tooltip--point-left";
+    var pointRightClass = "tooltip--point-right";
+    var elmCoords = element.getBoundingClientRect(); // We need the height of the map wrapper
+
+    var mapWrapper = document.querySelector('.panel__map-wrapper');
+    var mapWrapperCoords = mapWrapper.getBoundingClientRect();
+    console.log("Box Bounds: ", mapWrapperCoords); // The tooltip can't be more than the box width or height
+    // If the distance on the right is more than the width of the tooltip, it needs to flip onto the other side
+
+    var tooltip = document.querySelector(".tooltip");
+    tooltip.classList.remove(pointLeftClass, pointRightClass);
+    tooltip.innerHTML = text;
+    tooltip.style.display = "block";
+    var tooltipCoords = tooltip.getBoundingClientRect(); // we need to flip the tooltip if it overflows the map wrapper
+
+    var tooltipLeftPos = elmCoords.x - mapWrapperCoords.x + elmCoords.width * 0.75;
+    var tooltipRightPos = tooltipLeftPos + tooltipCoords.width;
+
+    if (tooltipRightPos > mapWrapperCoords.width) {
+      var tooltipBoundMapDifference = tooltipRightPos - mapWrapperCoords.width;
+      tooltip.style.left = tooltipLeftPos - tooltipBoundMapDifference - elmCoords.width * 1.15 + 'px';
+      tooltip.classList.add(pointRightClass);
+    } else {
+      tooltip.style.left = tooltipLeftPos + 'px';
+      tooltip.classList.add(pointLeftClass);
+    }
+
+    tooltip.style.top = elmCoords.y - mapWrapperCoords.y + tooltipCoords.height / 2 + 'px';
+  }
+})();
 //# sourceMappingURL=all.js.map

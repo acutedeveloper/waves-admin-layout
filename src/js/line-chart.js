@@ -79,13 +79,13 @@ const lineCharts = (function(){
     let salesChart = new Chart('line-chart__sales', salesChartConfig);
 
     function redrawChart() {
-        salesChart.destroy();
+        salesChart.update();
         salesChart = new Chart('line-chart__new-customers', newCustomersConfig);
 
-        activeUsersChart.destroy();
+        activeUsersChart.update();
         activeUsersChart = new Chart('line-chart__active-users', activeUsersConfig);
 
-        newCustomersChart.destroy();
+        newCustomersChart.update();
         newCustomersChart = new Chart('line-chart__sales', salesChartConfig);
     }
 

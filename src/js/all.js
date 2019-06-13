@@ -116,7 +116,7 @@ const menuConfig = {
     targetElement: "js-menu-list",
     disableButton: "",
     cssToggleClass: "js-show-menu",
-    windowClickDisable: true
+    windowClickDisable: false
 };
 
 const headerMenu = new ToggleMyElement(menuConfig);

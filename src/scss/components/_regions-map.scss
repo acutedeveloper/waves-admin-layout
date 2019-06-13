@@ -1,0 +1,33 @@
+.tooltip {
+  @apply rounded shadow bg-white relative p-4;
+  z-index: 10;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 7px;
+    height: 15px;
+    background-color: $white;
+  }
+
+  &--point-left {
+    &:before {
+      -webkit-clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      left: -6px;
+    }
+  }
+
+  &--point-right {
+    &:before {
+      -webkit-clip-path: polygon(100% 50%, 0 0, 0 100%);
+      clip-path: polygon(100% 50%, 0 0, 0 100%);
+      right: -6px;
+      z-index: 5;
+    }
+  }
+}
+
+.map-marker:hover {
+  cursor: pointer;
+}
