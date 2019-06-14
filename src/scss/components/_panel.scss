@@ -44,7 +44,7 @@
 
   &__map-wrapper {
     @apply absolute pin-l pin-r pin-b pin-t;
-    overflow: hidden;
+    overflow: scroll;
   }
 
   &__map {

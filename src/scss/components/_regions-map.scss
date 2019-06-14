@@ -1,5 +1,5 @@
 .tooltip {
-  @apply rounded shadow bg-white relative p-4;
+  @apply rounded shadow bg-white absolute p-3;
   z-index: 10;
 
   &:before {
@@ -8,6 +8,7 @@
     width: 7px;
     height: 15px;
     background-color: $white;
+    top: calc(50% - 7.5px);
   }
 
   &--point-left {
@@ -24,6 +25,15 @@
       clip-path: polygon(100% 50%, 0 0, 0 100%);
       right: -6px;
       z-index: 5;
+    }
+  }
+
+  &__stat {
+    text-transform: uppercase;
+    position: relative;
+
+    .icon-down-dir:before {
+      margin: 0;
     }
   }
 }

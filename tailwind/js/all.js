@@ -522,28 +522,40 @@ var lineCharts = function () {
 
     var mapWrapper = document.querySelector('.panel__map-wrapper');
     var mapWrapperCoords = mapWrapper.getBoundingClientRect();
+    console.log("Marker: ", elmCoords);
     console.log("Box Bounds: ", mapWrapperCoords); // The tooltip can't be more than the box width or height
     // If the distance on the right is more than the width of the tooltip, it needs to flip onto the other side
 
     var tooltip = document.querySelector(".tooltip");
     tooltip.classList.remove(pointLeftClass, pointRightClass);
-    tooltip.innerHTML = text;
     tooltip.style.display = "block";
-    var tooltipCoords = tooltip.getBoundingClientRect(); // we need to flip the tooltip if it overflows the map wrapper
+    var tooltipCoords = tooltip.getBoundingClientRect();
+    console.log("Tooltip Coords: ", tooltipCoords); // we need to flip the tooltip if it overflows the map wrapper
 
-    var tooltipLeftPos = elmCoords.x - mapWrapperCoords.x + elmCoords.width * 0.75;
-    var tooltipRightPos = tooltipLeftPos + tooltipCoords.width;
+    var tooltipLeftPos = elmCoords.x - mapWrapperCoords.x + elmCoords.width;
+    var tooltipRightPos = tooltipLeftPos + tooltipCoords.width; // if(tooltipRightPos > mapWrapperCoords.width){
+    //     let tooltipBoundMapDifference = tooltipRightPos - mapWrapperCoords.width;
+    //     tooltip.style.left = tooltipLeftPos - tooltipBoundMapDifference - elmCoords.width + 'px';
+    //     tooltip.classList.add(pointRightClass);
+    // } else {
+    //     tooltip.style.left = tooltipLeftPos + 'px';
+    //     tooltip.classList.add(pointLeftClass);
+    // }
 
-    if (tooltipRightPos > mapWrapperCoords.width) {
-      var tooltipBoundMapDifference = tooltipRightPos - mapWrapperCoords.width;
-      tooltip.style.left = tooltipLeftPos - tooltipBoundMapDifference - elmCoords.width * 1.15 + 'px';
-      tooltip.classList.add(pointRightClass);
+    if (elmCoords.x > mapWrapperCoords.x) {
+      tooltip.style.left = elmCoords.x - mapWrapperCoords.x - tooltipCoords.width + 'px'; // we want to check if the tooltip exceeds the boundaries of the wrapper
+      // if so, we will flip its position
+      // We could also get all of the co-ords of the marker then calculate the space that can fit
     } else {
-      tooltip.style.left = tooltipLeftPos + 'px';
-      tooltip.classList.add(pointLeftClass);
+      tooltip.style.left = mapWrapperCoords.x - elmCoords.x - tooltipCoords.width + 'px';
     }
 
-    tooltip.style.top = elmCoords.y - mapWrapperCoords.y + tooltipCoords.height / 2 + 'px';
+    if (elmCoords.y > mapWrapperCoords.y) {
+      console.log(elmCoords.y - mapWrapperCoords.y);
+      tooltip.style.top = elmCoords.y - mapWrapperCoords.y + 'px';
+    } else {
+      tooltip.style.top = mapWrapperCoords.y - elmCoords.y + 'px';
+    }
   }
 })();
 //# sourceMappingURL=all.js.map
